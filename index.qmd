@@ -1,0 +1,796 @@
+---
+title: "Reproducible Research: From Code to Career"
+subtitle: "How to save time, build trust, and maximize your impact"
+author: "Adrien Krähenbühl (ICube, Université de Strasbourg), Quentin Bammey (Image and Visual Representation Lab, École Polytechnique Fédérale de Lausanne), Gabriele Facciolo (Centre Borelli, ENS Paris-Saclay)"
+lightbox: true
+scrollable: true
+format: 
+  revealjs:
+    theme: style/theme.scss
+    embed-resources: false
+    view-distance: 800
+    mermaid: {}
+---
+
+## Title Slide {.title-slide}
+
+QR CODE HERE TBD
+
+::: footer
+Get all the code from this session.
+:::
+
+::: notes
+Good morning everyone, and welcome. My goal over the next hour is to give you a set of practical tools that can fundamentally change the impact of your research. But first, I want to start with a quick show of hands...
+:::
+
+
+## A new SOTA has been established!
+
+![](images/breakthrough.png)
+
+
+---
+
+## The Researcher's Journey: A Case Study
+
+Let's walk through a realistic attempt to run the code from a newly published paper.
+
+::: {.r-stack}
+
+::: {.fragment}
+````{=html}
+<div class="panel-code">
+<pre><code>$ python train.py
+
+Traceback (most recent call last):
+  File "train.py", line 5, in <module>
+    from fancy_layers import CustomAttentionBlock
+<span style="color: #d83939; font-weight: bold;">ModuleNotFoundError: No module named 'fancy_layers'</span></code></pre>
+</div>
+````
+:::
+
+::: {.fragment}
+````{=html}
+<div class="panel-code">
+<pre><code>$ python train.py --fix_dependencies
+
+Running feature extraction...
+  File "train.py", line 73, in <module>
+    features = extract_features(data)
+  File "/app/utils/features.py", line 31, in extract_features
+    fd, hog_image = hog(image, orientations=8, visualise=True)
+<span style="color: #d83939; font-weight: bold;">TypeError: hog() got an unexpected keyword argument 'visualise'</span></code></pre>
+</div>
+````
+:::
+
+::: {.fragment}
+````{=html}
+<div class="panel-code">
+<pre><code>$ python train.py --fix_dependencies --legacy_skimage --fix_paths
+
+Model training started...
+Data loaded successfully.
+Epoch 1/100
+[...]
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/functional.py", line 2854, in linear
+    return torch.addmm(bias, input, weight.t())
+<span style="color: #d83939; font-weight: bold;">RuntimeError: CUDA out of memory. Tried to allocate 12.58 GiB (GPU 0; 15.90 GiB total capacity)</span></code></pre>
+</div>
+````
+:::
+
+::: {.fragment}
+````{=html}
+<div class="panel-code">
+<pre><code>$ python train.py --fix_dependencies --legacy_skimage
+
+Model training started...
+Loading data...
+Traceback (most recent call last):
+  File "train.py", line 150, in <module>
+    dataset = H5Dataset(config['dataset_path'])
+  File "/app/utils/data.py", line 17, in __init__
+    self.h5_file = h5py.File(path, 'r')
+<span style="color: #d83939; font-weight: bold;">FileNotFoundError: [Errno 2] No such file or directory: '/home/clara/data/grestsi_dataset/train_set.h5'</span></code></pre>
+</div>
+````
+:::
+
+
+:::
+
+
+
+
+## Our Collective Technical Debt
+
+
+!["This is fine"](https://i.imgur.com/c4jt321.png){fig-align="center" width="400"}
+
+
+* The magic parameter `alpha = 0.87` (source: unknown).
+* "It worked yesterday, I swear."
+* `requirements.txt`: `numpy`, `pytorch` (Reality: 58 hidden packages).
+* The true hero of every project: `Final_Final_v2_really_final.ipynb`.
+
+::: notes
+And let's be honest, we're not just victims here—we're also the culprits. We rush to meet deadlines. We tell ourselves we'll clean up the code and document it later. We create this technical debt. But that debt has consequences, not just for others, but for our own future success. To make this concrete, let me tell you a quick story.
+:::
+
+
+## A Tale of Two Researchers
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Clara, The Sprinter
+
+::: {.fragment}
+![](images/clara.png){fig-align="center" width="250"}
+
+- **Focus:** Get the result. Publish the paper. Move on.
+- **Code:** "It works on my machine." Pushed to GitHub and forgotten.
+:::
+:::
+
+
+::: {.column width="50%"}
+### Maria, The Builder
+
+::: {.fragment}
+![](images/maria.png){fig-align="center" width="250"}
+
+- **Focus:** Get the result *and* make it usable.
+- **Code:** Packaged with a clean, well-described, usable implementation.
+:::
+:::
+::::
+
+
+::: notes
+Meet Clara and Maria. Both are brilliant researchers. They both developed fantastic new methods and got their papers accepted right here at GRETSI. They had similar results, but they had very different philosophies about their code. Let's fast forward one year and see how their choices played out.
+:::
+
+---
+
+## One Year Later: Clara's Path
+### The Sprinter's Journey
+
+```{mermaid}
+flowchart TD
+    A[Paper Published] --> B{Industry Contact};
+    B --> C[2 weeks later: code fails];
+    C --> D[Opportunity lost];
+    A --> E{Journal Extension};
+    E --> F[3 Weeks to reproduce own results];
+    F --> G[Time lost];
+    A --> H{GitHub Repo};
+    H --> I[3 “Doesn't work” issues];
+    I --> J[Impact Limited];
+    classDef default color:#ddddee, fill:#1d1d2a, border:#ddddee;
+```
+
+::: notes
+Clara sprinted to the deadline. But her 'finished' paper was built on a fragile foundation. When a potential collaborator or employer came knocking, the door was effectively closed. Even worse, her most important collaborator—'Future Clara'—was stuck, wasting weeks rebuilding what she had already done. The initial splash of the publication quickly faded.
+:::
+
+
+## One Year Later: Maria's Path
+### The Builder's Journey
+
+```{mermaid}
+flowchart TD
+    A[Paper Published] --> B{Industry Contact};
+    B --> C[Demo & Container work instantly];
+    C --> D[Collaboration Gained];
+    A --> E{Community};
+    E --> F[Code used as baseline];
+    F --> G[Reputation Built];
+    A --> H{GitHub Repo};
+    H --> I[150 Stars, Pull Requests];
+    I --> J[Impact Multiplied];
+    classDef default color:#ddddee, fill:#1d1d2a, border:#ddddee;
+```
+
+::: notes
+Maria, on the other hand, invested a little extra time—maybe 10%—to build something robust. This small, upfront investment acted as an impact multiplier. Her work wasn't just *read*; it was *used*, *verified*, and *built upon*. She didn't just publish a paper; she delivered a reliable tool to the community, and the community rewarded her for it.
+:::
+
+---
+
+## The Core Principle
+
+::: {.fragment .fade-in-then-semi-out}
+$$Impact = Performance \times Usability$$
+:::
+
+::: {.fragment}
+A brilliant result that no one can use has an impact of zero.
+:::
+
+::: {.fragment}
+**Reproducibility turns your paper from a claim into a contribution.**
+:::
+
+::: notes
+The difference between Clara and Maria comes down to this single principle. For too long, our community has been obsessed with the 'Performance' term. But the true, lasting impact of our work is a product of its performance *and* its usability. The story of Clara and Maria shows us that reproducibility isn't just an ethical nice-to-have; it's a core driver of scientific and career success.
+:::
+
+---
+
+## Our Goal Today: The Builder's Toolkit
+
+1.  **The Framework:** Define the pillars of reproducibility.
+2.  **The Toolbox:** Go from a messy script to a clean, usable and understandable implementation.
+3.  **The Payoff:** Create and deploy an interactive web demo of your code in minutes.
+
+::: {.fragment}
+### You will leave here with a concrete plan to become a 'Builder'.
+:::
+
+::: notes
+The good news is that everything Maria did is accessible to all of us. It doesn't require being a software engineering expert. It just requires knowing a few key tools and a simple workflow. That is our mission for the rest of this session. We'll establish a clear framework, I'll walk you through the essential tools in a live demo, and we'll see the payoff by building an interactive demo. By the end, you'll have a practical plan to ensure your next great idea has the impact it deserves. Let's get started.
+:::
+
+# The pillars of reproducibility
+## The Pillars of Reproducibility
+
+To understand these concepts, let's run a simple experiment: can a small neural network tell the difference between a T-shirt and a pair of Trousers?
+
+---
+
+### Pillar 1: Repeatability
+
+::: {.callout-note}
+#### Repeatability: "Can I get the exact same result twice?"
+This is the baseline: achieving bit-for-bit identical results by fixing every variable, especially random seeds.
+:::
+
+The key is fixing the `random_state`. Let's run the *exact same code* twice, with the seed locked to `42`.
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{python}
+#| echo: true
+import numpy as np
+from sklearn.datasets import fetch_openml
+from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import accuracy_score
+import plotly.graph_objects as go
+
+# Function to run one complete experiment
+def run_experiment(seed):
+    # Load the Fashion-MNIST dataset
+    X, y = fetch_openml('Fashion-MNIST', version=1, return_X_y=True, as_frame=False, parser='liac-arff')
+
+    # Filter for two classes: 'T-shirt' (0) and 'Trouser' (1)
+    tshirt_trouser_indices = np.where((y == '0') | (y == '1'))
+    X_subset, y_subset = X[tshirt_trouser_indices], y[tshirt_trouser_indices]
+    
+    # Split the data with a fixed random_state
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_subset, y_subset, test_size=0.2, random_state=seed
+    )
+
+    # Define and train a model with a fixed random_state
+    model = MLPClassifier(hidden_layer_sizes=(50,), max_iter=10, random_state=seed)
+    model.fit(X_train, y_train)
+    
+    # Evaluate and return the accuracy
+    predictions = model.predict(X_test)
+    return accuracy_score(y_test, predictions)
+
+# Run the experiment twice with the same seed
+seed = 42
+accuracy_run_1 = run_experiment(seed)
+accuracy_run_2 = run_experiment(seed)
+
+print(f"Seed used for both runs: {seed}")
+print(f"Accuracy of Run 1: {accuracy_run_1:.4f}")
+print(f"Accuracy of Run 2: {accuracy_run_2:.4f}")
+```
+:::
+
+::: {.column width="40%"}
+```{python}
+#| echo: false
+fig = go.Figure([
+    go.Bar(name='Run 1', x=['Accuracy'], y=[accuracy_run_1]),
+    go.Bar(name='Run 2', x=['Accuracy'], y=[accuracy_run_2])
+])
+fig.update_layout(
+    title='Repeatability: Two Runs, Same Seed',
+    yaxis_title='Accuracy',
+    yaxis=dict(range=[0.95, 1.0]),
+    barmode='group',
+    legend_title='Experiment Run',
+    template='plotly_dark'
+)
+fig.show()
+```
+Perfect match. This is **repeatability**.
+:::
+::::
+
+---
+
+### Pillar 2: Reproducibility
+
+::: {.callout-note}
+#### Reproducibility: "Does my finding hold if we change the random seed?"
+The goal is to reach the same scientific conclusion, even if the numbers aren't identical.
+:::
+
+We'll run the same experiment five times, each with a *different* random seed, to check the stability of our result.
+
+:::: {.columns}
+::: {.column width="60%"}
+```{python}
+#| echo: true
+# We re-use the run_experiment function from the previous slide.
+
+# Run the experiment 5 times with different seeds
+seeds = [0, 42, 101, 1337, 2025]
+accuracies = []
+for seed in seeds:
+    acc = run_experiment(seed)
+    accuracies.append(acc)
+    print(f"Seed: {seed:<4} -> Accuracy: {acc:.4f}")
+```
+:::
+::: {.column width="40%"}
+```{python}
+#| echo: false
+fig = go.Figure(data=go.Box(
+    y=accuracies,
+    name='Model Accuracy',
+    boxpoints='all',
+    jitter=0.3,
+    pointpos=-1.8
+))
+
+fig.update_layout(
+    title='Reproducibility: Accuracy Across 5 Seeds',
+    yaxis_title='Accuracy',
+    yaxis=dict(range=[0.95, 1.0]),
+    template='plotly_dark'
+)
+fig.show()
+
+```
+The numbers wiggle, but the story is the same: accuracy is ~99%. This is **reproducibility**.
+:::
+::::
+
+---
+
+### Pillar 3: Replicability
+
+::: {.callout-note}
+#### Replicability: "Is my finding a real phenomenon, or a quirk of my dataset?"
+The gold standard: testing if a scientific discovery holds up under a new, independent study.
+:::
+
+Let's challenge our finding by applying the *same model* to a new task: telling 'Sandals' from 'Ankle Boots'.
+
+:::: {.columns}
+::: {.column width="60%"}
+```{python}
+#| echo: true
+
+def run_replication_experiment(seed, class1_label, class2_label):
+    # Load the same Fashion-MNIST dataset
+    X, y = fetch_openml('Fashion-MNIST', version=1, return_X_y=True, as_frame=False, parser='liac-arff')
+
+    # Filter for two NEW classes: 'Sandal' (5) and 'Ankle Boot' (9)
+    sandal_boot_indices = np.where((y == class1_label) | (y == class2_label))
+    X_subset, y_subset = X[sandal_boot_indices], y[sandal_boot_indices]
+    
+    # Split, train, and evaluate using the same model architecture
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_subset, y_subset, test_size=0.2, random_state=seed
+    )
+    model = MLPClassifier(hidden_layer_sizes=(50,), max_iter=10, random_state=seed)
+    model.fit(X_train, y_train)
+    
+    return accuracy_score(model.predict(X_test), y_test)
+# Run the replication experiment
+accuracy_replication = run_replication_experiment(seed=42, class1_label='5', class2_label='9')
+
+# For comparison, let's use our first result
+accuracy_original = accuracy_run_1 
+ 
+#print(f"Original Task (T-shirt vs Trouser) Accuracy: {accuracy_original:.4f}")
+print(f"Replication Task (Sandal vs Boot) Accuracy: {accuracy_replication:.4f}")
+```
+:::
+
+::: {.column width="40%"}
+```{python}
+#| echo: false
+fig = go.Figure([
+    go.Bar(name='Original Study', x=['T-shirt vs Trouser'], y=[accuracy_original]),
+    go.Bar(name='Replication Study', x=['Sandal vs Ankle Boot'], y=[accuracy_replication])
+])
+fig.update_layout(
+    title='Replicability: Testing the Finding on New Data',
+    yaxis_title='Accuracy',
+    yaxis=dict(range=[0.9, 1.0]),
+    template='plotly_dark'
+)
+fig.show()
+```
+The core discovery holds up under new scrutiny. This is the gold standard: **replicability**.
+:::
+::::
+
+
+
+---
+
+## Beyond Running Code: The Paper as a Blueprint
+
+::: {.columns}
+
+::: {.column width="50%"}
+![A clean architectural blueprint representing a scientific paper.](images/blueprint.png)
+:::
+
+::: {.column width="50%"}
+![A complex building, based on the blueprint but with messy, undocumented features, representing the actual code.](images/blueprint_result.png)
+:::
+
+:::
+
+> So far, we've focused on re-running existing code. Now, we ask the deeper questions:
+>
+> 1.  If your code vanished, could someone rebuild it from your paper alone? (**Longevity**)
+> 2.  Does your code contain "secret features" not shown in the blueprint? (**Validation**)
+
+---
+
+## The Case of the Vague Paper: A Rogues' Gallery {.smaller}
+
+:::: {.columns}
+::: {.column width="25%"}
+![The Magic Number](images/mugshot_number.png)
+
+**Crime:** Unexplained constants critical to performance.
+*Example: `learning_rate = 0.00137`.*
+:::
+::: {.column width="25%"}
+![The Vague Preprocessing](images/mugshot_image.png)
+
+**Crime:** Hand-wavy descriptions of data preparation.
+*Example: "...images were normalized..."*
+:::
+
+
+::: {.column width="25%"}
+![The Undocumented Trick](images/mugshot_rabbit.png)
+
+**Crime:** Crucial implementation details absent from the paper.
+*Example: Using gradient clipping or a specific weight initialization, filtering out results in saturated regions of an image.*
+:::
+::: {.column width="25%"}
+![The Vague data](images/mugshot_film.png)
+
+**Crime:** Vague description of the training/evaluation data.
+*Example: Using unreferenced datasets, vague description of the data that was acquired for this paper.*
+:::
+::::
+
+---
+
+## A Checklist for Clarity
+
+A paper that perfectly describes its method is resilient and trustworthy. Here’s how to write one.
+
+- [ ] **Justify constants:** If a number isn't obvious, explain its origin (e.g., "from an empirical sweep," "as in Smith et al., 2025").
+
+- [ ] **Document all steps and pre/post-processing:** Give the equation for normalization (`(x - mean) / std`) and the exact values used. Name the filter and its parameters. Publish a hyperparameter table.
+
+- [ ] **Use Pseudocode:** For any complex algorithm or training loop, provide clear pseudocode. It is the ultimate bridge between theory and code.
+
+- [ ] **Specify data**: Explicitly describe which data you use, in which way. If you acquire data for the paper, follow reproducibility practices for data.
+
+
+##  A Checklist for Clarity
+::: {.callout-tip icon="true"}
+## The Gold Standard
+
+Journals like **IPOL (Image Processing On Line)** are built on this principle. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method's preservation and validity.
+:::
+<embed src="ipol_article.pdf" width="100%" height="800" type="application/pdf">
+
+### Demo
+##  A Checklist for Clarity
+::: {.callout-tip icon="true"}
+## The Gold Standard
+
+Journals like **IPOL (Image Processing On Line)** are built on this principle. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method's preservation and validity.
+:::
+<iframe src="https://ipolcore.ipol.im/demo/clientApp/demo.html?id=420&archive=791228" width="100%" height="800px" style="border:none; display:block; margin:0 auto; background-color:white"></iframe>
+
+
+# From zero to Reproducible
+
+## Starting Point: The Research Notebook
+
+:::: {.columns}
+::: {.column width="60%"}
+- ✅ Rapid exploration & prototyping
+- ✅ Easy visualization
+- ❌ Non-linear execution hides the true workflow
+- ❌ "Hidden state" makes results hard to trust
+- ❌ Impossible to use as a simple tool
+
+### How do we turn this sketch into a reliable tool?
+:::
+::: {.column width="40%"}
+[TBD A screenshot of a very long and messy Jupyter Notebook with out-of-order cell execution numbers.](images/messy_notebook.png)
+:::
+::::
+
+---
+
+## Level 1: Scripts & A Blueprint
+
+The first step is to create a clear, reusable structure.
+
+:::: {.columns}
+::: {.column width="30%"}
+
+![Blueprint](images/diagram_blueprint.svg){fig-align="center"}
+:::
+::: {.column width="70%"}
+### Checklist for a Good Structure
+- **Clear instructions:** A `README.md` explaining setup and execution.
+- Separate scripts to retrain the model, reproduce benchmark results, and use the model.
+- **Provide pre-trained Models:** Don't force users to retrain everything.
+:::
+::::
+---
+
+## Level 2: The Basic Parts List
+
+Your code can't run in a vacuum. You must specify all its dependencies with **pinned versions**.
+
+:::: {.columns}
+::: {.column width="28%"}
+**❌**
+```txt
+# requirements.txt
+numpy
+torch
+```
+:::
+::: {.column width="28%"}
+**❌**
+```txt
+# requirements.txt
+numpy
+torch
+tqdm
+pillow
+imageio
+```
+:::
+::: {.column width="39%"}
+**✅**
+```txt
+# requirements.txt
+numpy==1.26.4
+torch==2.4.1
+tqdm==4.4.1
+pillow=11.3.0
+imageio==2.37.0
+```
+:::
+::::
+
+**But:** a `requirements.txt` doesn't lock the dependencies *of your dependencies*. Results can still vary.
+
+---
+
+## Level 3: The Complete Bill of Materials
+
+::: {.incremental}
+- **Solution:** Lock the *entire* environment with modern tools.
+- **Our Choice:** **`uv`**.
+- **Why?** It's incredibly fast, all-in-one (installer, venv manager), and creates a perfect, reproducible lock file.
+:::
+
+---
+
+## Hands-On: A Perfect Python Environment
+
+::: {.columns}
+::: {.column width="50%"}
+#### 1. For the Author
+
+```bash
+# Initialize a new project
+$ uv init
+
+# Pin a Python version
+$ uv python pin 3.11
+
+# Add packages to pyproject.toml
+# and generate a uv.lock file
+$ uv add numpy==1.26.4 torch
+```
+:::
+::: {.column width="50%"}
+#### 2. For the User
+
+```bash
+# Clone the repository
+$ git clone ...
+
+# Install the EXACT environment
+# from the uv.lock file
+$ uv sync
+
+# Run the code
+$ uv run predict.py  # equivalent to uv run python predict.py
+$ uv run my_executable
+```
+:::
+:::
+
+Use `uv` from the beginning, even when experimenting and developing!
+
+To use libraries without packaging them in the final environment (e. g. Jupyter notebooks):
+```bash
+$ uv run --with jupyter --with matplotlib jupyter lab 
+```
+
+---
+
+## When Python Isn't Enough...
+
+What about dependencies on the operating system itself?
+
+![The dependency iceberg](images/diagram_iceberg.svg){fig-align="center"}
+
+---
+
+## Level 4: The 'Computer in a File'
+
+**Solution:** A **Container** (like Docker) packages everything:
+Code + Python Environment + OS Libraries.
+
+### Hands-On: The `Dockerfile` Recipe
+```dockerfile
+# Start from a specific Python base image
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install uv
+RUN pip install uv
+
+# Copy ONLY the lock files
+COPY pyproject.toml uv.lock ./
+
+# Install the exact Python env
+RUN uv sync --no-cache
+
+# Copy the rest of your code
+COPY . .
+
+# Define a default command
+CMD ["uv", "run", "python", "predict.py"]
+```
+Now anyone with Docker can run your code, identically, *everywhere*.
+
+---
+
+## Summary: Climbing the Ladder
+
+![Ladder](images/diagram_ladder.svg){fig-align="center"}
+
+Even with a perfect container, some challenges remain...
+
+---
+
+## The CUDA Challenge
+
+**The Problem:** A dependency matrix of Hardware → Driver → Toolkit → Library.
+
+::: {.columns}
+::: {.column width="50%"}
+#### Solution Part 1: Inside the Container
+Use NVIDIA's official base images in your `Dockerfile` to lock the CUDA Toolkit.
+
+```dockerfile
+FROM nvidia/cuda:12.6.1-cudnn-devel-ubuntu22.04
+...
+```
+:::
+::: {.column width="50%"}
+#### Solution Part 2: On the Host
+The user needs the NVIDIA Container Toolkit and a sufficiently new driver.
+
+**Your Job:** Be explicit! State the required driver version in your `README.md`.
+:::
+:::
+
+---
+
+## Remaining Obstacles: Data & Hardware
+
+::: {.columns}
+::: {.column width="50%"}
+### The Data Barrier
+- **Size:** Provide download scripts; use DVC.
+- **Access:** Offer a "demo mode" with public/synthetic data.
+- **Format:** Document precisely and provide conversion scripts.
+:::
+::: {.column width="50%"}
+### The Hardware Chasm
+- **CPU (x86/ARM):** Provide multi-arch Docker builds.
+- **RAM/Resources:** Document minimum requirements clearly.
+:::
+:::
+
+---
+
+## Remaining Obstacles: Software Dependencies
+
+::: {.columns}
+::: {.column width="50%"}
+#### The Polyglot Project
+Your code might mix Python, C++, Rust, other libraries...
+
+[TBD Logos of languages](images/polyglot_logos.png)
+:::
+::: {.column width="50%"}
+#### The Solution
+- **Containerization is essential.** Your `Dockerfile` must install *all* required runtimes.
+- **Be transparent** about paid licenses (e.g., MATLAB) in your `README`.
+:::
+:::
+
+---
+
+## The Final Mile: Usability
+
+Even if code is runnable, is it *usable*?
+
+::: {.panel-tabset}
+
+### Bad CLI
+
+**Problem:** A command line with dozens of obscure, undocumented flags is hostile to users.
+```bash
+# What do these even mean?!
+$ python run.py -a 0.1 -b 32 --z_dim 128 -fe_lr 0.00137
+```
+**Solution:** Use libraries like `Typer` or `Argparse` to create a clean, self-documenting CLI with help text.
+
+### No Samples
+
+**Problem:** A user clones your repository but has no correctly formatted data to test the `predict.py` script.
+
+**Solution:** Always include a `sample_data/` directory and a `run_demo.sh` script. A "Quick Start" that runs in seconds is invaluable.
+
+### No UI/Demo
+
+**Problem:** The command line is still a major barrier for many potential users (collaborators, industry, other fields).
+
+**Solution:** Wrapping your script in an online demo makes it universally accessible and dramatically increases its impact.
+
+:::
+
+# Creating a demo
+
+## Creating a demo
+TBD (gradio or streamlit or shiny, + IPOL)

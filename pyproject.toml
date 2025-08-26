@@ -1,0 +1,15 @@
+[project]
+name = "25-08-gretsi-reproducible-research"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.5",
+    "numpy>=2.3.2",
+    "pandas>=2.3.2",
+    "plotly>=6.3.0",
+    "quarto>=0.1.0",
+    "scikit-learn>=1.7.1",
+]

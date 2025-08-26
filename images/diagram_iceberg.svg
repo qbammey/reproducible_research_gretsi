@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="318" height="364" style="background:transparent" viewBox="0 0 238.5 273">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@400&amp;display=swap');
+    </style>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ddddee"></path>
+    </marker>
+  </defs>
+  <g>
+    <g class="nodes">
+      <g transform="translate(119.25 26)" id="A">
+        <rect width="138.5" height="37" x="-69.25" y="-18.5" fill="#3c3c52" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Your Code (.py)</tspan>
+        </text>
+      </g>
+      <g transform="translate(119.25 98.5)" id="B">
+        <rect width="234.5" height="37" x="-117.25" y="-18.5" fill="#3c3c52" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Python Environment (uv.lock)</tspan>
+        </text>
+      </g>
+      <g transform="translate(119.25 171)" id="C">
+        <rect width="238.5" height="37" x="-119.25" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">System Libraries &amp; CUDA Toolkit</tspan>
+        </text>
+      </g>
+      <g transform="translate(119.25 243.5)" id="D">
+        <rect width="223.5" height="37" x="-111.75" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Operating System &amp; GPU Driver</tspan>
+        </text>
+      </g>
+    </g>
+    <g class="edgePaths">
+      <path d="M 119.25 44.5 L 119.25 80" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 119.25 117 L 119.25 152.5" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 119.25 189.5 L 119.25 225" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+    </g>
+  </g>
+</svg>

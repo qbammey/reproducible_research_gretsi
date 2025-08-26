@@ -1,0 +1,46 @@
+/*-- scss:defaults --*/
+@import url(https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&family=Ysabeau+SC:wght@1..1000&display=swap);
+
+$font-family-sans-serif: "Ysabeau Infant", sans-serif !default;
+$presentation-heading-font: "Ysabeau Infant", sans-serif !default;
+
+$accent: #4a76d5;
+
+$body-bg: #222233 !default;
+$body-color: #ddddee !default;
+$link-color: $accent !default;
+$selection-bg: $accent !default;
+$selection-color: #fff !default;
+
+$code-block-border-color: $accent;
+
+$callout-color-note: $accent;
+
+
+
+
+.panel-code {
+  box-sizing: border-box;
+  text-align: left;
+  background-color: #1d1d2a;       /* Dark charcoal background for the panel */
+  border: 1px solid #495057;       /* A slightly lighter grey border for subtle contrast */
+  border-radius: 0.25rem;
+  padding: 0.75em 1em;
+  box-shadow: none !important;
+  color: #f8f9fa;                  /* Light grey text for readability */
+}
+
+/* This forcefully neutralizes any conflicting theme styling */
+.panel-code pre,
+.panel-code pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  color: inherit !important;
+  font-family: monospace;
+  font-size: 0.85em;
+}

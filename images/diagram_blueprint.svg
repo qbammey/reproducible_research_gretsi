@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="248.38" height="428" style="background:transparent" viewBox="0 0 186.28 321">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@400&amp;display=swap');
+    </style>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ddddee"></path>
+    </marker>
+  </defs>
+  <g>
+    <g class="nodes">
+      <g transform="translate(93.14 26)" id="A">
+        <rect width="174.38" height="37" x="-87.19" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">MessyNotebook.ipynb</tspan>
+        </text>
+      </g>
+      <g transform="translate(93.14 101.3)" id="B">
+        <rect width="112.8" height="37" x="-56.4" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">train.py</tspan>
+        </text>
+      </g>
+      <g transform="translate(93.14 165.7)" id="C">
+        <rect width="120.92" height="37" x="-60.46" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">predict.py</tspan>
+        </text>
+      </g>
+      <g transform="translate(93.14 230.5)" id="D">
+        <rect width="119.84" height="37" x="-59.92" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">README.md</tspan>
+        </text>
+      </g>
+      <g transform="translate(93.14 296)" id="E">
+        <rect width="179.62" height="37" x="-89.81" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">pretrained_models/</tspan>
+        </text>
+      </g>
+    </g>
+    <g class="edgePaths">
+      <path d="M 93.14 44.5 L 93.14 82.8" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 93.14 119.8 L 93.14 147.2" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 93.14 184.2 L 93.14 212" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 93.14 249 L 93.14 277.5" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark-d0a9048d95e02c7ff9c82715fd5ddea4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="index_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="index_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.6">
+
+  <meta name="author" content="Adrien Krähenbühl (ICube, Université de Strasbourg), Quentin Bammey (Image and Visual Representation Lab, École Polytechnique Fédérale de Lausanne), Gabriele Facciolo (Centre Borelli, ENS Paris-Saclay)">
+  <title>Reproducible Research: From Code to Career</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-79687b130e5294a74551fd0d50a4da8a.css">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="mermaid-theme" content="neutral">
+  <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Reproducible Research: From Code to Career</h1>
+  <p class="subtitle">How to save time, build trust, and maximize your impact</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Adrien Krähenbühl (ICube, Université de Strasbourg), Quentin Bammey (Image and Visual Representation Lab, École Polytechnique Fédérale de Lausanne), Gabriele Facciolo (Centre Borelli, ENS Paris-Saclay) 
+</div>
+</div>
+</div>
+
+</section>
+<section id="title-slide" class="slide level2 title-slide center">
+<h2>Title Slide</h2>
+<p>QR CODE HERE TBD</p>
+<div class="footer">
+<p>Get all the code from this session.</p>
+</div>
+<aside class="notes">
+<p>Good morning everyone, and welcome. My goal over the next hour is to give you a set of practical tools that can fundamentally change the impact of your research. But first, I want to start with a quick show of hands…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-new-sota-has-been-established" class="slide level2">
+<h2>A new SOTA has been established!</h2>
+<p><a href="images/breakthrough.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/breakthrough.png"></a></p>
+</section>
+<section id="the-researchers-journey-a-case-study" class="slide level2">
+<h2>The Researcher’s Journey: A Case Study</h2>
+<p>Let’s walk through a realistic attempt to run the code from a newly published paper.</p>
+<div class="r-stack">
+<div class="fragment">
+<div class="panel-code">
+<pre><code>$ python train.py
+
+Traceback (most recent call last):
+  File "train.py", line 5, in <module>
+    from fancy_layers import CustomAttentionBlock
+<span style="color: #d83939; font-weight: bold;">ModuleNotFoundError: No module named 'fancy_layers'</span></module></code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="panel-code">
+<pre><code>$ python train.py --fix_dependencies
+
+Running feature extraction...
+  File "train.py", line 73, in <module>
+    features = extract_features(data)
+  File "/app/utils/features.py", line 31, in extract_features
+    fd, hog_image = hog(image, orientations=8, visualise=True)
+<span style="color: #d83939; font-weight: bold;">TypeError: hog() got an unexpected keyword argument 'visualise'</span></module></code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="panel-code">
+<pre><code>$ python train.py --fix_dependencies --legacy_skimage --fix_paths
+
+Model training started...
+Data loaded successfully.
+Epoch 1/100
+[...]
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/functional.py", line 2854, in linear
+    return torch.addmm(bias, input, weight.t())
+<span style="color: #d83939; font-weight: bold;">RuntimeError: CUDA out of memory. Tried to allocate 12.58 GiB (GPU 0; 15.90 GiB total capacity)</span></code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="panel-code">
+<pre><code>$ python train.py --fix_dependencies --legacy_skimage
+
+Model training started...
+Loading data...
+Traceback (most recent call last):
+  File "train.py", line 150, in <module>
+    dataset = H5Dataset(config['dataset_path'])
+  File "/app/utils/data.py", line 17, in __init__
+    self.h5_file = h5py.File(path, 'r')
+<span style="color: #d83939; font-weight: bold;">FileNotFoundError: [Errno 2] No such file or directory: '/home/clara/data/grestsi_dataset/train_set.h5'</span></module></code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="our-collective-technical-debt" class="slide level2">
+<h2>Our Collective Technical Debt</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://i.imgur.com/c4jt321.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="“This is fine”"><img data-src="https://i.imgur.com/c4jt321.png" class="quarto-figure quarto-figure-center" width="400" alt="“This is fine”"></a></p>
+</figure>
+</div>
+<figcaption>“This is fine”</figcaption>
+</figure>
+</div>
+<ul>
+<li>The magic parameter <code>alpha = 0.87</code> (source: unknown).</li>
+<li>“It worked yesterday, I swear.”</li>
+<li><code>requirements.txt</code>: <code>numpy</code>, <code>pytorch</code> (Reality: 58 hidden packages).</li>
+<li>The true hero of every project: <code>Final_Final_v2_really_final.ipynb</code>.</li>
+</ul>
+<aside class="notes">
+<p>And let’s be honest, we’re not just victims here—we’re also the culprits. We rush to meet deadlines. We tell ourselves we’ll clean up the code and document it later. We create this technical debt. But that debt has consequences, not just for others, but for our own future success. To make this concrete, let me tell you a quick story.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-tale-of-two-researchers" class="slide level2">
+<h2>A Tale of Two Researchers</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="clara-the-sprinter">Clara, The Sprinter</h3>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/clara.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="images/clara.png" class="quarto-figure quarto-figure-center" width="250"></a></p>
+</figure>
+</div>
+<ul>
+<li><strong>Focus:</strong> Get the result. Publish the paper. Move on.</li>
+<li><strong>Code:</strong> “It works on my machine.” Pushed to GitHub and forgotten.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="maria-the-builder">Maria, The Builder</h3>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/maria.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="images/maria.png" class="quarto-figure quarto-figure-center" width="250"></a></p>
+</figure>
+</div>
+<ul>
+<li><strong>Focus:</strong> Get the result <em>and</em> make it usable.</li>
+<li><strong>Code:</strong> Packaged with a clean, well-described, usable implementation.</li>
+</ul>
+</div>
+</div></div>
+<aside class="notes">
+<p>Meet Clara and Maria. Both are brilliant researchers. They both developed fantastic new methods and got their papers accepted right here at GRETSI. They had similar results, but they had very different philosophies about their code. Let’s fast forward one year and see how their choices played out.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="one-year-later-claras-path" class="slide level2">
+<h2>One Year Later: Clara’s Path</h2>
+<h3 id="the-sprinters-journey">The Sprinter’s Journey</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Paper Published] --&gt; B{Industry Contact};
+    B --&gt; C[2 weeks later: code fails];
+    C --&gt; D[Opportunity lost];
+    A --&gt; E{Journal Extension};
+    E --&gt; F[3 Weeks to reproduce own results];
+    F --&gt; G[Time lost];
+    A --&gt; H{GitHub Repo};
+    H --&gt; I[3 “Doesn't work” issues];
+    I --&gt; J[Impact Limited];
+    classDef default color:#ddddee, fill:#1d1d2a, border:#ddddee;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Clara sprinted to the deadline. But her ‘finished’ paper was built on a fragile foundation. When a potential collaborator or employer came knocking, the door was effectively closed. Even worse, her most important collaborator—‘Future Clara’—was stuck, wasting weeks rebuilding what she had already done. The initial splash of the publication quickly faded.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="one-year-later-marias-path" class="slide level2">
+<h2>One Year Later: Maria’s Path</h2>
+<h3 id="the-builders-journey">The Builder’s Journey</h3>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Paper Published] --&gt; B{Industry Contact};
+    B --&gt; C[Demo &amp; Container work instantly];
+    C --&gt; D[Collaboration Gained];
+    A --&gt; E{Community};
+    E --&gt; F[Code used as baseline];
+    F --&gt; G[Reputation Built];
+    A --&gt; H{GitHub Repo};
+    H --&gt; I[150 Stars, Pull Requests];
+    I --&gt; J[Impact Multiplied];
+    classDef default color:#ddddee, fill:#1d1d2a, border:#ddddee;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Maria, on the other hand, invested a little extra time—maybe 10%—to build something robust. This small, upfront investment acted as an impact multiplier. Her work wasn’t just <em>read</em>; it was <em>used</em>, <em>verified</em>, and <em>built upon</em>. She didn’t just publish a paper; she delivered a reliable tool to the community, and the community rewarded her for it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-core-principle" class="slide level2">
+<h2>The Core Principle</h2>
+<div class="fragment fade-in-then-semi-out">
+<p><span class="math display">\[Impact = Performance \times Usability\]</span></p>
+</div>
+<div class="fragment">
+<p>A brilliant result that no one can use has an impact of zero.</p>
+</div>
+<div class="fragment">
+<p><strong>Reproducibility turns your paper from a claim into a contribution.</strong></p>
+</div>
+<aside class="notes">
+<p>The difference between Clara and Maria comes down to this single principle. For too long, our community has been obsessed with the ‘Performance’ term. But the true, lasting impact of our work is a product of its performance <em>and</em> its usability. The story of Clara and Maria shows us that reproducibility isn’t just an ethical nice-to-have; it’s a core driver of scientific and career success.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="our-goal-today-the-builders-toolkit" class="slide level2 scrollable">
+<h2>Our Goal Today: The Builder’s Toolkit</h2>
+<ol type="1">
+<li><strong>The Framework:</strong> Define the pillars of reproducibility.</li>
+<li><strong>The Toolbox:</strong> Go from a messy script to a clean, usable and understandable implementation.</li>
+<li><strong>The Payoff:</strong> Create and deploy an interactive web demo of your code in minutes.</li>
+</ol>
+<div class="fragment">
+<h3 id="you-will-leave-here-with-a-concrete-plan-to-become-a-builder.">You will leave here with a concrete plan to become a ‘Builder’.</h3>
+</div>
+<aside class="notes">
+<p>The good news is that everything Maria did is accessible to all of us. It doesn’t require being a software engineering expert. It just requires knowing a few key tools and a simple workflow. That is our mission for the rest of this session. We’ll establish a clear framework, I’ll walk you through the essential tools in a live demo, and we’ll see the payoff by building an interactive demo. By the end, you’ll have a practical plan to ensure your next great idea has the impact it deserves. Let’s get started.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="the-pillars-of-reproducibility" class="title-slide slide level1 center">
+<h1>The pillars of reproducibility</h1>
+
+</section>
+<section id="the-pillars-of-reproducibility-1" class="slide level2">
+<h2>The Pillars of Reproducibility</h2>
+<p>To understand these concepts, let’s run a simple experiment: can a small neural network tell the difference between a T-shirt and a pair of Trousers?</p>
+</section>
+<section class="slide level2">
+
+<h3 id="pillar-1-repeatability">Pillar 1: Repeatability</h3>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Repeatability: “Can I get the exact same result twice?”</strong></p>
+</div>
+<div class="callout-content">
+<p>This is the baseline: achieving bit-for-bit identical results by fixing every variable, especially random seeds.</p>
+</div>
+</div>
+</div>
+<p>The key is fixing the <code>random_state</code>. Let’s run the <em>exact same code</em> twice, with the seed locked to <code>42</code>.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="d3bff5b6" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href=""></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_openml</span>
+<span id="cb1-3"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-4"><a href=""></a><span class="im">from</span> sklearn.neural_network <span class="im">import</span> MLPClassifier</span>
+<span id="cb1-5"><a href=""></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb1-6"><a href=""></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a><span class="co"># Function to run one complete experiment</span></span>
+<span id="cb1-9"><a href=""></a><span class="kw">def</span> run_experiment(seed):</span>
+<span id="cb1-10"><a href=""></a>    <span class="co"># Load the Fashion-MNIST dataset</span></span>
+<span id="cb1-11"><a href=""></a>    X, y <span class="op">=</span> fetch_openml(<span class="st">'Fashion-MNIST'</span>, version<span class="op">=</span><span class="dv">1</span>, return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">False</span>, parser<span class="op">=</span><span class="st">'liac-arff'</span>)</span>
+<span id="cb1-12"><a href=""></a></span>
+<span id="cb1-13"><a href=""></a>    <span class="co"># Filter for two classes: 'T-shirt' (0) and 'Trouser' (1)</span></span>
+<span id="cb1-14"><a href=""></a>    tshirt_trouser_indices <span class="op">=</span> np.where((y <span class="op">==</span> <span class="st">'0'</span>) <span class="op">|</span> (y <span class="op">==</span> <span class="st">'1'</span>))</span>
+<span id="cb1-15"><a href=""></a>    X_subset, y_subset <span class="op">=</span> X[tshirt_trouser_indices], y[tshirt_trouser_indices]</span>
+<span id="cb1-16"><a href=""></a>    </span>
+<span id="cb1-17"><a href=""></a>    <span class="co"># Split the data with a fixed random_state</span></span>
+<span id="cb1-18"><a href=""></a>    X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb1-19"><a href=""></a>        X_subset, y_subset, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span>seed</span>
+<span id="cb1-20"><a href=""></a>    )</span>
+<span id="cb1-21"><a href=""></a></span>
+<span id="cb1-22"><a href=""></a>    <span class="co"># Define and train a model with a fixed random_state</span></span>
+<span id="cb1-23"><a href=""></a>    model <span class="op">=</span> MLPClassifier(hidden_layer_sizes<span class="op">=</span>(<span class="dv">50</span>,), max_iter<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span>seed)</span>
+<span id="cb1-24"><a href=""></a>    model.fit(X_train, y_train)</span>
+<span id="cb1-25"><a href=""></a>    </span>
+<span id="cb1-26"><a href=""></a>    <span class="co"># Evaluate and return the accuracy</span></span>
+<span id="cb1-27"><a href=""></a>    predictions <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb1-28"><a href=""></a>    <span class="cf">return</span> accuracy_score(y_test, predictions)</span>
+<span id="cb1-29"><a href=""></a></span>
+<span id="cb1-30"><a href=""></a><span class="co"># Run the experiment twice with the same seed</span></span>
+<span id="cb1-31"><a href=""></a>seed <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb1-32"><a href=""></a>accuracy_run_1 <span class="op">=</span> run_experiment(seed)</span>
+<span id="cb1-33"><a href=""></a>accuracy_run_2 <span class="op">=</span> run_experiment(seed)</span>
+<span id="cb1-34"><a href=""></a></span>
+<span id="cb1-35"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Seed used for both runs: </span><span class="sc">{</span>seed<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-36"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Accuracy of Run 1: </span><span class="sc">{</span>accuracy_run_1<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb1-37"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Accuracy of Run 2: </span><span class="sc">{</span>accuracy_run_2<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed used for both runs: 42
+Accuracy of Run 1: 0.9850
+Accuracy of Run 2: 0.9850</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div id="d9644356" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.1.0.min"</script>
+        
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="14adc7fb-b2bd-48bd-bf9d-a8737078d5b7" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("14adc7fb-b2bd-48bd-bf9d-a8737078d5b7")) {                    Plotly.newPlot(                        "14adc7fb-b2bd-48bd-bf9d-a8737078d5b7",                        [{"name":"Run 1","x":["Accuracy"],"y":[0.985],"type":"bar"},{"name":"Run 2","x":["Accuracy"],"y":[0.985],"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"yaxis":{"title":{"text":"Accuracy"},"range":[0.95,1.0]},"title":{"text":"Repeatability: Two Runs, Same Seed"},"barmode":"group","legend":{"title":{"text":"Experiment Run"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('14adc7fb-b2bd-48bd-bf9d-a8737078d5b7');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+<p>Perfect match. This is <strong>repeatability</strong>.</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="pillar-2-reproducibility">Pillar 2: Reproducibility</h3>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reproducibility: “Does my finding hold if we change the random seed?”</strong></p>
+</div>
+<div class="callout-content">
+<p>The goal is to reach the same scientific conclusion, even if the numbers aren’t identical.</p>
+</div>
+</div>
+</div>
+<p>We’ll run the same experiment five times, each with a <em>different</em> random seed, to check the stability of our result.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="cc4607ad" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># We re-use the run_experiment function from the previous slide.</span></span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="co"># Run the experiment 5 times with different seeds</span></span>
+<span id="cb3-4"><a href=""></a>seeds <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">42</span>, <span class="dv">101</span>, <span class="dv">1337</span>, <span class="dv">2025</span>]</span>
+<span id="cb3-5"><a href=""></a>accuracies <span class="op">=</span> []</span>
+<span id="cb3-6"><a href=""></a><span class="cf">for</span> seed <span class="kw">in</span> seeds:</span>
+<span id="cb3-7"><a href=""></a>    acc <span class="op">=</span> run_experiment(seed)</span>
+<span id="cb3-8"><a href=""></a>    accuracies.append(acc)</span>
+<span id="cb3-9"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Seed: </span><span class="sc">{</span>seed<span class="sc">:&lt;4}</span><span class="ss"> -&gt; Accuracy: </span><span class="sc">{</span>acc<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 0    -&gt; Accuracy: 0.9904</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 42   -&gt; Accuracy: 0.9850</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 101  -&gt; Accuracy: 0.9904</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 1337 -&gt; Accuracy: 0.9868
+Seed: 2025 -&gt; Accuracy: 0.9850</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div id="5070f58d" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="22146c09-b94b-455e-a70e-b39ba181fd30" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("22146c09-b94b-455e-a70e-b39ba181fd30")) {                    Plotly.newPlot(                        "22146c09-b94b-455e-a70e-b39ba181fd30",                        [{"boxpoints":"all","jitter":0.3,"name":"Model Accuracy","pointpos":-1.8,"y":[0.9903571428571428,0.985,0.9903571428571428,0.9867857142857143,0.985],"type":"box"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"yaxis":{"title":{"text":"Accuracy"},"range":[0.95,1.0]},"title":{"text":"Reproducibility: Accuracy Across 5 Seeds"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('22146c09-b94b-455e-a70e-b39ba181fd30');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+<p>The numbers wiggle, but the story is the same: accuracy is ~99%. This is <strong>reproducibility</strong>.</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="pillar-3-replicability">Pillar 3: Replicability</h3>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Replicability: “Is my finding a real phenomenon, or a quirk of my dataset?”</strong></p>
+</div>
+<div class="callout-content">
+<p>The gold standard: testing if a scientific discovery holds up under a new, independent study.</p>
+</div>
+</div>
+</div>
+<p>Let’s challenge our finding by applying the <em>same model</em> to a new task: telling ‘Sandals’ from ‘Ankle Boots’.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="50afe67f" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="kw">def</span> run_replication_experiment(seed, class1_label, class2_label):</span>
+<span id="cb8-2"><a href=""></a>    <span class="co"># Load the same Fashion-MNIST dataset</span></span>
+<span id="cb8-3"><a href=""></a>    X, y <span class="op">=</span> fetch_openml(<span class="st">'Fashion-MNIST'</span>, version<span class="op">=</span><span class="dv">1</span>, return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">False</span>, parser<span class="op">=</span><span class="st">'liac-arff'</span>)</span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a>    <span class="co"># Filter for two NEW classes: 'Sandal' (5) and 'Ankle Boot' (9)</span></span>
+<span id="cb8-6"><a href=""></a>    sandal_boot_indices <span class="op">=</span> np.where((y <span class="op">==</span> class1_label) <span class="op">|</span> (y <span class="op">==</span> class2_label))</span>
+<span id="cb8-7"><a href=""></a>    X_subset, y_subset <span class="op">=</span> X[sandal_boot_indices], y[sandal_boot_indices]</span>
+<span id="cb8-8"><a href=""></a>    </span>
+<span id="cb8-9"><a href=""></a>    <span class="co"># Split, train, and evaluate using the same model architecture</span></span>
+<span id="cb8-10"><a href=""></a>    X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb8-11"><a href=""></a>        X_subset, y_subset, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span>seed</span>
+<span id="cb8-12"><a href=""></a>    )</span>
+<span id="cb8-13"><a href=""></a>    model <span class="op">=</span> MLPClassifier(hidden_layer_sizes<span class="op">=</span>(<span class="dv">50</span>,), max_iter<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span>seed)</span>
+<span id="cb8-14"><a href=""></a>    model.fit(X_train, y_train)</span>
+<span id="cb8-15"><a href=""></a>    </span>
+<span id="cb8-16"><a href=""></a>    <span class="cf">return</span> accuracy_score(model.predict(X_test), y_test)</span>
+<span id="cb8-17"><a href=""></a><span class="co"># Run the replication experiment</span></span>
+<span id="cb8-18"><a href=""></a>accuracy_replication <span class="op">=</span> run_replication_experiment(seed<span class="op">=</span><span class="dv">42</span>, class1_label<span class="op">=</span><span class="st">'5'</span>, class2_label<span class="op">=</span><span class="st">'9'</span>)</span>
+<span id="cb8-19"><a href=""></a></span>
+<span id="cb8-20"><a href=""></a><span class="co"># For comparison, let's use our first result</span></span>
+<span id="cb8-21"><a href=""></a>accuracy_original <span class="op">=</span> accuracy_run_1 </span>
+<span id="cb8-22"><a href=""></a> </span>
+<span id="cb8-23"><a href=""></a><span class="co">#print(f"Original Task (T-shirt vs Trouser) Accuracy: {accuracy_original:.4f}")</span></span>
+<span id="cb8-24"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Replication Task (Sandal vs Boot) Accuracy: </span><span class="sc">{</span>accuracy_replication<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Replication Task (Sandal vs Boot) Accuracy: 0.9800</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div id="2d9755ed" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="158a5550-53e5-44ff-9d04-d80fb0dd3cb5" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("158a5550-53e5-44ff-9d04-d80fb0dd3cb5")) {                    Plotly.newPlot(                        "158a5550-53e5-44ff-9d04-d80fb0dd3cb5",                        [{"name":"Original Study","x":["T-shirt vs Trouser"],"y":[0.985],"type":"bar"},{"name":"Replication Study","x":["Sandal vs Ankle Boot"],"y":[0.98],"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"yaxis":{"title":{"text":"Accuracy"},"range":[0.9,1.0]},"title":{"text":"Replicability: Testing the Finding on New Data"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('158a5550-53e5-44ff-9d04-d80fb0dd3cb5');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+<p>The core discovery holds up under new scrutiny. This is the gold standard: <strong>replicability</strong>.</p>
+</div></div>
+</section>
+<section id="beyond-running-code-the-paper-as-a-blueprint" class="slide level2 scrollable">
+<h2>Beyond Running Code: The Paper as a Blueprint</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/blueprint.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="A clean architectural blueprint representing a scientific paper."><img data-src="images/blueprint.png" alt="A clean architectural blueprint representing a scientific paper."></a></p>
+<figcaption>A clean architectural blueprint representing a scientific paper.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/blueprint_result.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="A complex building, based on the blueprint but with messy, undocumented features, representing the actual code."><img data-src="images/blueprint_result.png" alt="A complex building, based on the blueprint but with messy, undocumented features, representing the actual code."></a></p>
+<figcaption>A complex building, based on the blueprint but with messy, undocumented features, representing the actual code.</figcaption>
+</figure>
+</div>
+</div></div>
+<blockquote>
+<p>So far, we’ve focused on re-running existing code. Now, we ask the deeper questions:</p>
+<ol type="1">
+<li>If your code vanished, could someone rebuild it from your paper alone? (<strong>Longevity</strong>)</li>
+<li>Does your code contain “secret features” not shown in the blueprint? (<strong>Validation</strong>)</li>
+</ol>
+</blockquote>
+</section>
+<section id="the-case-of-the-vague-paper-a-rogues-gallery" class="slide level2 smaller">
+<h2>The Case of the Vague Paper: A Rogues’ Gallery</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/mugshot_number.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="The Magic Number"><img data-src="images/mugshot_number.png" alt="The Magic Number"></a></p>
+<figcaption>The Magic Number</figcaption>
+</figure>
+</div>
+<p><strong>Crime:</strong> Unexplained constants critical to performance. <em>Example: <code>learning_rate = 0.00137</code>.</em></p>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/mugshot_image.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="The Vague Preprocessing"><img data-src="images/mugshot_image.png" alt="The Vague Preprocessing"></a></p>
+<figcaption>The Vague Preprocessing</figcaption>
+</figure>
+</div>
+<p><strong>Crime:</strong> Hand-wavy descriptions of data preparation. <em>Example: “…images were normalized…”</em></p>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/mugshot_rabbit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="The Undocumented Trick"><img data-src="images/mugshot_rabbit.png" alt="The Undocumented Trick"></a></p>
+<figcaption>The Undocumented Trick</figcaption>
+</figure>
+</div>
+<p><strong>Crime:</strong> Crucial implementation details absent from the paper. <em>Example: Using gradient clipping or a specific weight initialization, filtering out results in saturated regions of an image.</em></p>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/mugshot_film.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="The Vague data"><img data-src="images/mugshot_film.png" alt="The Vague data"></a></p>
+<figcaption>The Vague data</figcaption>
+</figure>
+</div>
+<p><strong>Crime:</strong> Vague description of the training/evaluation data. <em>Example: Using unreferenced datasets, vague description of the data that was acquired for this paper.</em></p>
+</div></div>
+</section>
+<section id="a-checklist-for-clarity" class="slide level2">
+<h2>A Checklist for Clarity</h2>
+<p>A paper that perfectly describes its method is resilient and trustworthy. Here’s how to write one.</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox"><strong>Justify constants:</strong> If a number isn’t obvious, explain its origin (e.g., “from an empirical sweep,” “as in Smith et al., 2025”).</label></p></li>
+<li><p><label><input type="checkbox"><strong>Document all steps and pre/post-processing:</strong> Give the equation for normalization (<code>(x - mean) / std</code>) and the exact values used. Name the filter and its parameters. Publish a hyperparameter table.</label></p></li>
+<li><p><label><input type="checkbox"><strong>Use Pseudocode:</strong> For any complex algorithm or training loop, provide clear pseudocode. It is the ultimate bridge between theory and code.</label></p></li>
+<li><p><label><input type="checkbox"><strong>Specify data</strong>: Explicitly describe which data you use, in which way. If you acquire data for the paper, follow reproducibility practices for data.</label></p></li>
+</ul>
+</section>
+<section id="a-checklist-for-clarity-1" class="slide level2">
+<h2>A Checklist for Clarity</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Gold Standard</strong></p>
+</div>
+<div class="callout-content">
+<p>Journals like <strong>IPOL (Image Processing On Line)</strong> are built on this principle. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method’s preservation and validity.</p>
+</div>
+</div>
+</div>
+<embed src="ipol_article.pdf" width="100%" height="800" type="application/pdf">
+<h3 id="demo">Demo</h3>
+</section>
+<section id="a-checklist-for-clarity-2" class="slide level2">
+<h2>A Checklist for Clarity</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Gold Standard</strong></p>
+</div>
+<div class="callout-content">
+<p>Journals like <strong>IPOL (Image Processing On Line)</strong> are built on this principle. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method’s preservation and validity.</p>
+</div>
+</div>
+</div>
+<iframe src="https://ipolcore.ipol.im/demo/clientApp/demo.html?id=420&amp;archive=791228" width="100%" height="800px" style="border:none; display:block; margin:0 auto; background-color:white">
+</iframe>
+</section></section>
+<section>
+<section id="from-zero-to-reproducible" class="title-slide slide level1 center">
+<h1>From zero to Reproducible</h1>
+
+</section>
+<section id="starting-point-the-research-notebook" class="slide level2">
+<h2>Starting Point: The Research Notebook</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>✅ Rapid exploration &amp; prototyping</li>
+<li>✅ Easy visualization</li>
+<li>❌ Non-linear execution hides the true workflow</li>
+<li>❌ “Hidden state” makes results hard to trust</li>
+<li>❌ Impossible to use as a simple tool</li>
+</ul>
+<h3 id="how-do-we-turn-this-sketch-into-a-reliable-tool">How do we turn this sketch into a reliable tool?</h3>
+</div><div class="column" style="width:40%;">
+<p><a href="images/messy_notebook.png">TBD A screenshot of a very long and messy Jupyter Notebook with out-of-order cell execution numbers.</a></p>
+</div></div>
+</section>
+<section id="level-1-scripts-a-blueprint" class="slide level2">
+<h2>Level 1: Scripts &amp; A Blueprint</h2>
+<p>The first step is to create a clear, reusable structure.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/diagram_blueprint.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Blueprint"><img data-src="images/diagram_blueprint.svg" class="quarto-figure quarto-figure-center" alt="Blueprint"></a></p>
+</figure>
+</div>
+<figcaption>Blueprint</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:70%;">
+<h3 id="checklist-for-a-good-structure">Checklist for a Good Structure</h3>
+<ul>
+<li><strong>Clear instructions:</strong> A <code>README.md</code> explaining setup and execution.</li>
+<li>Separate scripts to retrain the model, reproduce benchmark results, and use the model.</li>
+<li><strong>Provide pre-trained Models:</strong> Don’t force users to retrain everything.</li>
+</ul>
+</div></div>
+</section>
+<section id="level-2-the-basic-parts-list" class="slide level2">
+<h2>Level 2: The Basic Parts List</h2>
+<p>Your code can’t run in a vacuum. You must specify all its dependencies with <strong>pinned versions</strong>.</p>
+<div class="columns">
+<div class="column" style="width:28%;">
+<p><strong>❌</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href=""></a># requirements.txt</span>
+<span id="cb10-2"><a href=""></a>numpy</span>
+<span id="cb10-3"><a href=""></a>torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:28%;">
+<p><strong>❌</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href=""></a># requirements.txt</span>
+<span id="cb11-2"><a href=""></a>numpy</span>
+<span id="cb11-3"><a href=""></a>torch</span>
+<span id="cb11-4"><a href=""></a>tqdm</span>
+<span id="cb11-5"><a href=""></a>pillow</span>
+<span id="cb11-6"><a href=""></a>imageio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:39%;">
+<p><strong>✅</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href=""></a># requirements.txt</span>
+<span id="cb12-2"><a href=""></a>numpy==1.26.4</span>
+<span id="cb12-3"><a href=""></a>torch==2.4.1</span>
+<span id="cb12-4"><a href=""></a>tqdm==4.4.1</span>
+<span id="cb12-5"><a href=""></a>pillow=11.3.0</span>
+<span id="cb12-6"><a href=""></a>imageio==2.37.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<p><strong>But:</strong> a <code>requirements.txt</code> doesn’t lock the dependencies <em>of your dependencies</em>. Results can still vary.</p>
+</section>
+<section id="level-3-the-complete-bill-of-materials" class="slide level2">
+<h2>Level 3: The Complete Bill of Materials</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Solution:</strong> Lock the <em>entire</em> environment with modern tools.</li>
+<li class="fragment"><strong>Our Choice:</strong> <strong><code>uv</code></strong>.</li>
+<li class="fragment"><strong>Why?</strong> It’s incredibly fast, all-in-one (installer, venv manager), and creates a perfect, reproducible lock file.</li>
+</ul>
+</div>
+</section>
+<section id="hands-on-a-perfect-python-environment" class="slide level2">
+<h2>Hands-On: A Perfect Python Environment</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="for-the-author">1. For the Author</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href=""></a><span class="co"># Initialize a new project</span></span>
+<span id="cb13-2"><a href=""></a><span class="ex">$</span> uv init</span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="co"># Pin a Python version</span></span>
+<span id="cb13-5"><a href=""></a><span class="ex">$</span> uv python pin 3.11</span>
+<span id="cb13-6"><a href=""></a></span>
+<span id="cb13-7"><a href=""></a><span class="co"># Add packages to pyproject.toml</span></span>
+<span id="cb13-8"><a href=""></a><span class="co"># and generate a uv.lock file</span></span>
+<span id="cb13-9"><a href=""></a><span class="ex">$</span> uv add numpy==1.26.4 torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h4 id="for-the-user">2. For the User</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href=""></a><span class="co"># Clone the repository</span></span>
+<span id="cb14-2"><a href=""></a><span class="ex">$</span> git clone ...</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a><span class="co"># Install the EXACT environment</span></span>
+<span id="cb14-5"><a href=""></a><span class="co"># from the uv.lock file</span></span>
+<span id="cb14-6"><a href=""></a><span class="ex">$</span> uv sync</span>
+<span id="cb14-7"><a href=""></a></span>
+<span id="cb14-8"><a href=""></a><span class="co"># Run the code</span></span>
+<span id="cb14-9"><a href=""></a><span class="ex">$</span> uv run predict.py  <span class="co"># equivalent to uv run python predict.py</span></span>
+<span id="cb14-10"><a href=""></a><span class="ex">$</span> uv run my_executable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<p>Use <code>uv</code> from the beginning, even when experimenting and developing!</p>
+<p>To use libraries without packaging them in the final environment (e. g. Jupyter notebooks):</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href=""></a><span class="ex">$</span> uv run <span class="at">--with</span> jupyter <span class="at">--with</span> matplotlib jupyter lab </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="when-python-isnt-enough" class="slide level2">
+<h2>When Python Isn’t Enough…</h2>
+<p>What about dependencies on the operating system itself?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/diagram_iceberg.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="The dependency iceberg"><img data-src="images/diagram_iceberg.svg" class="quarto-figure quarto-figure-center" alt="The dependency iceberg"></a></p>
+</figure>
+</div>
+<figcaption>The dependency iceberg</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-4-the-computer-in-a-file" class="slide level2">
+<h2>Level 4: The ‘Computer in a File’</h2>
+<p><strong>Solution:</strong> A <strong>Container</strong> (like Docker) packages everything: Code + Python Environment + OS Libraries.</p>
+<h3 id="hands-on-the-dockerfile-recipe">Hands-On: The <code>Dockerfile</code> Recipe</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb16-1"><a href=""></a><span class="co"># Start from a specific Python base image</span></span>
+<span id="cb16-2"><a href=""></a><span class="kw">FROM</span> python:3.11-slim</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a><span class="co"># Set working directory</span></span>
+<span id="cb16-5"><a href=""></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a><span class="co"># Install uv</span></span>
+<span id="cb16-8"><a href=""></a><span class="kw">RUN</span> <span class="ex">pip</span> install uv</span>
+<span id="cb16-9"><a href=""></a></span>
+<span id="cb16-10"><a href=""></a><span class="co"># Copy ONLY the lock files</span></span>
+<span id="cb16-11"><a href=""></a><span class="kw">COPY</span> pyproject.toml uv.lock ./</span>
+<span id="cb16-12"><a href=""></a></span>
+<span id="cb16-13"><a href=""></a><span class="co"># Install the exact Python env</span></span>
+<span id="cb16-14"><a href=""></a><span class="kw">RUN</span> <span class="ex">uv</span> sync <span class="at">--no-cache</span></span>
+<span id="cb16-15"><a href=""></a></span>
+<span id="cb16-16"><a href=""></a><span class="co"># Copy the rest of your code</span></span>
+<span id="cb16-17"><a href=""></a><span class="kw">COPY</span> . .</span>
+<span id="cb16-18"><a href=""></a></span>
+<span id="cb16-19"><a href=""></a><span class="co"># Define a default command</span></span>
+<span id="cb16-20"><a href=""></a><span class="kw">CMD</span> [<span class="st">"uv"</span>, <span class="st">"run"</span>, <span class="st">"python"</span>, <span class="st">"predict.py"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now anyone with Docker can run your code, identically, <em>everywhere</em>.</p>
+</section>
+<section id="summary-climbing-the-ladder" class="slide level2">
+<h2>Summary: Climbing the Ladder</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/diagram_ladder.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Ladder"><img data-src="images/diagram_ladder.svg" class="quarto-figure quarto-figure-center" alt="Ladder"></a></p>
+</figure>
+</div>
+<figcaption>Ladder</figcaption>
+</figure>
+</div>
+<p>Even with a perfect container, some challenges remain…</p>
+</section>
+<section id="the-cuda-challenge" class="slide level2">
+<h2>The CUDA Challenge</h2>
+<p><strong>The Problem:</strong> A dependency matrix of Hardware → Driver → Toolkit → Library.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="solution-part-1-inside-the-container">Solution Part 1: Inside the Container</h4>
+<p>Use NVIDIA’s official base images in your <code>Dockerfile</code> to lock the CUDA Toolkit.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb17-1"><a href=""></a><span class="kw">FROM</span> nvidia/cuda:12.6.1-cudnn-devel-ubuntu22.04</span>
+<span id="cb17-2"><a href=""></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<h4 id="solution-part-2-on-the-host">Solution Part 2: On the Host</h4>
+<p>The user needs the NVIDIA Container Toolkit and a sufficiently new driver.</p>
+<p><strong>Your Job:</strong> Be explicit! State the required driver version in your <code>README.md</code>.</p>
+</div></div>
+</section>
+<section id="remaining-obstacles-data-hardware" class="slide level2">
+<h2>Remaining Obstacles: Data &amp; Hardware</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="the-data-barrier">The Data Barrier</h3>
+<ul>
+<li><strong>Size:</strong> Provide download scripts; use DVC.</li>
+<li><strong>Access:</strong> Offer a “demo mode” with public/synthetic data.</li>
+<li><strong>Format:</strong> Document precisely and provide conversion scripts.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="the-hardware-chasm">The Hardware Chasm</h3>
+<ul>
+<li><strong>CPU (x86/ARM):</strong> Provide multi-arch Docker builds.</li>
+<li><strong>RAM/Resources:</strong> Document minimum requirements clearly.</li>
+</ul>
+</div></div>
+</section>
+<section id="remaining-obstacles-software-dependencies" class="slide level2">
+<h2>Remaining Obstacles: Software Dependencies</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="the-polyglot-project">The Polyglot Project</h4>
+<p>Your code might mix Python, C++, Rust, other libraries…</p>
+<p><a href="images/polyglot_logos.png">TBD Logos of languages</a></p>
+</div><div class="column" style="width:50%;">
+<h4 id="the-solution">The Solution</h4>
+<ul>
+<li><strong>Containerization is essential.</strong> Your <code>Dockerfile</code> must install <em>all</em> required runtimes.</li>
+<li><strong>Be transparent</strong> about paid licenses (e.g., MATLAB) in your <code>README</code>.</li>
+</ul>
+</div></div>
+</section>
+<section id="the-final-mile-usability" class="slide level2">
+<h2>The Final Mile: Usability</h2>
+<p>Even if code is runnable, is it <em>usable</em>?</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Bad CLI</a></li><li><a href="#tabset-1-2">No Samples</a></li><li><a href="#tabset-1-3">No UI/Demo</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p><strong>Problem:</strong> A command line with dozens of obscure, undocumented flags is hostile to users.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href=""></a><span class="co"># What do these even mean?!</span></span>
+<span id="cb18-2"><a href=""></a><span class="ex">$</span> python run.py <span class="at">-a</span> 0.1 <span class="at">-b</span> 32 <span class="at">--z_dim</span> 128 <span class="at">-fe_lr</span> 0.00137</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Solution:</strong> Use libraries like <code>Typer</code> or <code>Argparse</code> to create a clean, self-documenting CLI with help text.</p>
+</div>
+<div id="tabset-1-2">
+<p><strong>Problem:</strong> A user clones your repository but has no correctly formatted data to test the <code>predict.py</code> script.</p>
+<p><strong>Solution:</strong> Always include a <code>sample_data/</code> directory and a <code>run_demo.sh</code> script. A “Quick Start” that runs in seconds is invaluable.</p>
+</div>
+<div id="tabset-1-3">
+<p><strong>Problem:</strong> The command line is still a major barrier for many potential users (collaborators, industry, other fields).</p>
+<p><strong>Solution:</strong> Wrapping your script in an online demo makes it universally accessible and dramatically increases its impact.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="creating-a-demo" class="title-slide slide level1 center">
+<h1>Creating a demo</h1>
+
+</section>
+<section id="creating-a-demo-1" class="slide level2">
+<h2>Creating a demo</h2>
+<p>TBD (gradio or streamlit or shiny, + IPOL)</p>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 800,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+    
+
+</body></html>

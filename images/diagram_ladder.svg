@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="313" height="716" style="background:transparent" viewBox="0 0 255 570">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@400&amp;display=swap');
+    </style>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ddddee"></path>
+    </marker>
+  </defs>
+  <g transform="translate(2.5, 0)">
+    <g class="nodes">
+      <g transform="translate(124.5 26)" id="A">
+        <rect class="node" width="230" height="37" x="-115" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Level 1: Scripts &amp; README</tspan>
+        </text>
+      </g>
+      <g transform="translate(124.5 98.5)" id="S1">
+        <rect class="node" width="161.25" height="37" x="-80.62" y="-18.5" fill="#3c3c52" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Solves: Usability</tspan>
+        </text>
+      </g>
+      <g transform="translate(124.5 171)" id="B">
+        <rect class="node" width="223" height="37" x="-111.5" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Level 2: Pinned Dependencies</tspan>
+        </text>
+      </g>
+      <g transform="translate(124.5 243.5)" id="S2">
+        <rect class="node" width="172.25" height="37" x="-86.12" y="-18.5" fill="#3c3c52" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Solves: Basic Errors</tspan>
+        </text>
+      </g>
+      <g transform="translate(124.5 316)" id="C">
+        <rect class="node" width="249" height="37" x="-124.5" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Level 3: Locked Environment (uv)</tspan>
+        </text>
+      </g>
+      <g transform="translate(124.5 388.5)" id="S3">
+        <rect class="node" width="169.25" height="37" x="-84.62" y="-18.5" fill="#3c3c52" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Solves: Python Env</tspan>
+        </text>
+      </g>
+      <g transform="translate(124.5 461)" id="D">
+        <rect class="node" width="245" height="37" x="-122.5" y="-18.5" fill="#1d1d2a" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Level 4: Containerization (Docker)</tspan>
+        </text>
+      </g>
+      <g transform="translate(124.5 533.5)" id="S4">
+        <rect class="node" width="174.25" height="37" x="-87.12" y="-18.5" fill="#3c3c52" stroke="#ddddee" stroke-width="1" rx="4"></rect>
+        <text fill="#ddddee" dominant-baseline="central" text-anchor="middle" font-family="'Ysabeau Infant', sans-serif" font-size="16">
+          <tspan dy="0">Solves: System Env</tspan>
+        </text>
+      </g>
+    </g>
+    <g class="edgePaths">
+      <path d="M 124.5 44.5 L 124.5 63" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 124.5 117 L 124.5 135.5" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 124.5 189.5 L 124.5 208" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 124.5 262 L 124.5 280.5" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 124.5 334.5 L 124.5 353" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 124.5 407 L 124.5 425.5" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+      <path d="M 124.5 479.5 L 124.5 498" stroke="#ddddee" stroke-width="1" fill="none" marker-end="url(#arrowhead)"></path>
+    </g>
+  </g>
+</svg>
