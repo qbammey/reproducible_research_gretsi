@@ -1084,14 +1084,166 @@ Even more complex, excellent versatility within the Plotly environment.
 
 ---
 
-## The Academic Gold Standard: IPOL Demos
+## Towards full reproducibility with IPOL
 
-::: {.callout-note}
-### [Your content on IPOL]
-- IPOL (Image Processing On Line) represents a different paradigm...
-- Here, the demo is integrated with the peer-reviewed publication itself.
-- The focus is on method reproducibility, where the article contains every detail needed for re-implementation...
-- To be continued
-:::
+* Image Processing On Line (IPOL) is a **journal** and **demo system**
+* Submissions to IPOL are tripartite:
+    * an article containing a complete description (with pseudo-code) of the implementation, and enabling its reconstruction from scratch
+    * an implementation, that is peer-reviewed to assert that it matches the article
+    * an online demo
 
----
+## IPOL demo: a Dockerfile
+````
+
+```dockerfile
+FROM registry.ipol.im/ipol:v2-py3.11
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Copy the code to $bin
+ENV bin /workdir/bin/
+RUN mkdir -p $bin
+WORKDIR $bin
+COPY . .
+
+# sync dependencies
+RUN uv sync
+
+# the execution will happen in the folder /workdir/exec
+# it will be created by IPOL
+
+# some QoL tweaks
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION python
+ENV PATH $bin:$PATH
+
+# $HOME is writable by the user `ipol`, but 
+ENV HOME /home/ipol
+# chmod 777 so that any user can use the HOME, in case the docker is run with -u 1001:1001
+RUN groupadd -g 1000 ipol && useradd -m -u 1000 -g 1000 ipol -d $HOME && chmod -R 777 $HOME
+USER ipol
+```
+
+## IPOL demo: a JSON description
+```json 
+{
+    "general": {
+        "demo_title": "Gretsi 2025 Ipol demo: OT colour transfer",
+        "requirements": "docker"
+    },
+    "build": {
+      "url": "git@github.com:qbammey/reproducible_research_gretsi.git",
+      "rev": "origin/main",
+      "dockerfile": "Dockerfile"
+   },
+   "inputs": [
+      {
+         "type": "image",
+         "description": "Base image to stylize.",
+         "max_pixels": "1024*1024",
+         "dtype": "3x8i",
+         "ext": ".png"
+      },
+      {
+         "type": "image",
+         "description": "Style target",
+         "max_pixels": "1024*1024",
+         "dtype": "3x8i",
+         "ext": ".png"
+      }
+   ],
+   "params": [
+      {
+         "id": "downscale",
+         "description": "Downscale level",
+         "label": "Lower:faster, higher:finer",
+         "type": "numeric",
+         "values": {
+            "min": 5,
+            "max": 50,
+            "default": 30
+         }
+      },
+      {
+         "id": "metric",
+         "description": "Metric to use",
+         "label": "Use L1 for outlier robustness",
+         "type": "selection_radio",
+         "values": {
+            "L1": "l1",
+            "L2": "l2"
+         },
+         "default_value": "l2"
+      },
+      {
+         "id": "reg",
+         "description": "Regularization",
+         "label": "Entropic regularization for Sinkhorn. Set 0.0 to use EMD (original behaviour), >0 for faster/smoother transport on larger problems",
+         "type": "range",
+         "values": {
+            "min": 0,
+            "max": 0.1,
+            "step": 0.005,
+            "default": 0
+         }
+      },
+      {
+         "id": "smi",
+         "description": "Synkhorn max iterations",
+         "type": "numeric",
+         "values": {
+            "min": 200,
+            "max": 1000,
+            "default": 1000
+         },
+         "visible": "(params.reg>0.001)"
+      }
+   ],
+   "run": "uv --project $bin run $bin/example_demo/examples/outlier_colour_transfer/run.py --base $input_0 --target $input_1 --output out.png --downscale $downscale --metric $metric --reg $reg --sinkhorn-max-iter $smi",
+   "results": [
+      {
+         "type": "gallery",
+         "contents": {
+            "Base image": {
+               "img": "input_0.png"
+            },
+            "Style target": {
+               "img": "input_1.png"
+            },
+            "Result": {
+               "img": "out.png"
+            }
+         }
+      },
+       {
+         "contents": "stdout.txt",
+         "label": "<p>Output</p>",
+         "type": "text_file"
+      }
+   ],
+   "archive": {
+       "archive_always": true,
+      "enable_reconstruct": true,
+      "files": {
+         "input_0.png": "Base image",
+         "input_1.png": "Style target",
+         "out.png": "Result"
+      },
+      "params": [
+         "downscale",
+         "metric",
+         "reg",
+         "smi"
+      ]
+   }
+}
+```
+
+## IPOL demo
+
+<iframe src="https://ipolcore.ipol.im/demo/clientApp/demo.html?id=77777000513&archive=791279" width="100%" height="600px" style="border:none; display:block; margin:0 auto; background-color:white"></iframe>
+
+# Conclusion
+
+## To conclude
+
+TBD
