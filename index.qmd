@@ -533,7 +533,7 @@ Journals like **IPOL (Image Processing On Line)** are built on this principle. T
 ### How do we turn this sketch into a reliable tool?
 :::
 ::: {.column width="40%"}
-[TBD A screenshot of a very long and messy Jupyter Notebook with out-of-order cell execution numbers.](images/messy_notebook.png)
+[Prompt: A screenshot of a very long and messy Jupyter Notebook with out-of-order cell execution numbers.](images/messy_notebook.png)
 :::
 ::::
 
