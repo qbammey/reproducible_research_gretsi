@@ -28,7 +28,12 @@ plt.imsave('B2d.jpg', IB2d)
 IC1d = cv2.resize(IC1, (w_downscale, w_downscale))
 plt.imsave('C1d.jpg', IC1d)
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+device = (
+    "cuda" if torch.cuda.is_available()
+    else "mps" if torch.backends.mps.is_available()
+    else "cpu"
+)
+
 nd = w_downscale ** 2
 K = 3
 d = 3
