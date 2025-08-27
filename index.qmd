@@ -818,7 +818,7 @@ A working demo is the ultimate proof that your code isn't just theory. It runs, 
 
 ## Create a demo with Streamlit
 
-![Streamlit](images/streamlit_logo.svg){width=100}
+![](images/streamlit_logo.svg){width=100}
 
 - **What is it?** An open-source Python library to build and share web apps for machine learning and data science.
 
