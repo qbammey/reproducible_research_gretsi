@@ -1064,17 +1064,18 @@ Streamlit is great, but other tools might be better for specific needs.
 
 ::: {.columns}
 ::: {.column width="33%"}
-![Gradio](images/gradio_logo.svg){width=100}
+![](images/gradio_logo.svg){width=100}
 
 Simple, but lacks flexibility. Best for pure ML models, Hugging Face spaces.
 :::
 ::: {.column width="33%"}
-![Shiny](images/shiny_logo.png){width=150}
+![](images/shiny_logo.png){width=150}
+
 More complex, more versatility. Best if some interactivity (partial reruns) is needed.
 
 :::
 ::: {.column width="33%"}
-![Plotly Logo](images/plotly_logo.png){width=150}
+![](images/plotly_logo.png){width=150}
 
 Even more complex, excellent versatility within the Plotly environment.
 :::
