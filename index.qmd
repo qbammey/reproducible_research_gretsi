@@ -10,6 +10,12 @@ format:
     embed-resources: false
     view-distance: 800
     mermaid: {}
+    callout-appearance: simple
+    slide-number: c
+    menu:
+      side: left
+      width: wide
+      numbers: true
 ---
 
 ## Title Slide {.title-slide}
@@ -108,7 +114,7 @@ Traceback (most recent call last):
 ## Our Collective Technical Debt
 
 
-!["This is fine"](https://i.imgur.com/c4jt321.png){fig-align="center" width="400"}
+![](https://i.imgur.com/c4jt321.png){fig-align="center" width="400"}
 
 
 * The magic parameter `alpha = 0.87` (source: unknown).
@@ -236,24 +242,9 @@ The good news is that everything Maria did is accessible to all of us. It doesn'
 :::
 
 # The pillars of reproducibility
-## The Pillars of Reproducibility
 
 To understand these concepts, let's run a simple experiment: can a small neural network tell the difference between a T-shirt and a pair of Trousers?
 
----
-
-### Pillar 1: Repeatability
-
-::: {.callout-note}
-#### Repeatability: "Can I get the exact same result twice?"
-This is the baseline: achieving bit-for-bit identical results by fixing every variable, especially random seeds.
-:::
-
-The key is fixing the `random_state`. Let's run the *exact same code* twice, with the seed locked to `42`.
-
-:::: {.columns}
-
-::: {.column width="60%"}
 ```{python}
 #| echo: true
 import numpy as np
@@ -284,7 +275,21 @@ def run_experiment(seed):
     # Evaluate and return the accuracy
     predictions = model.predict(X_test)
     return accuracy_score(y_test, predictions)
+```
 
+
+## Pillar 1: Repeatability
+
+::: {.callout-note}
+#### Repeatability: "Can I get the exact same result twice?"
+The key to this is to **record and describe** the procedure used to run the code, and **fix the random state**
+:::
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{python}
 # Run the experiment twice with the same seed
 seed = 42
 accuracy_run_1 = run_experiment(seed)
@@ -296,7 +301,7 @@ print(f"Accuracy of Run 2: {accuracy_run_2:.4f}")
 ```
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{python}
 #| echo: false
 fig = go.Figure([
@@ -319,17 +324,15 @@ Perfect match. This is **repeatability**.
 
 ---
 
-### Pillar 2: Reproducibility
+## Pillar 2: Reproducibility
 
 ::: {.callout-note}
 #### Reproducibility: "Does my finding hold if we change the random seed?"
 The goal is to reach the same scientific conclusion, even if the numbers aren't identical.
 :::
 
-We'll run the same experiment five times, each with a *different* random seed, to check the stability of our result.
-
 :::: {.columns}
-::: {.column width="60%"}
+::: {.column width="50%"}
 ```{python}
 #| echo: true
 # We re-use the run_experiment function from the previous slide.
@@ -343,7 +346,7 @@ for seed in seeds:
     print(f"Seed: {seed:<4} -> Accuracy: {acc:.4f}")
 ```
 :::
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{python}
 #| echo: false
 fig = go.Figure(data=go.Box(
@@ -363,7 +366,7 @@ fig.update_layout(
 fig.show()
 
 ```
-The numbers wiggle, but the story is the same: accuracy is ~99%. This is **reproducibility**.
+Accuracy remains similar: this is reproducibility.
 :::
 ::::
 
@@ -379,7 +382,7 @@ The gold standard: testing if a scientific discovery holds up under a new, indep
 Let's challenge our finding by applying the *same model* to a new task: telling 'Sandals' from 'Ankle Boots'.
 
 :::: {.columns}
-::: {.column width="60%"}
+::: {.column width="50%"}
 ```{python}
 #| echo: true
 
@@ -410,7 +413,7 @@ print(f"Replication Task (Sandal vs Boot) Accuracy: {accuracy_replication:.4f}")
 ```
 :::
 
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{python}
 #| echo: false
 fig = go.Figure([
@@ -433,16 +436,16 @@ The core discovery holds up under new scrutiny. This is the gold standard: **rep
 
 ---
 
-## Beyond Running Code: The Paper as a Blueprint
+## Beyond Running Code: Algorithmic Reproducibility
 
 ::: {.columns}
 
 ::: {.column width="50%"}
-![A clean architectural blueprint representing a scientific paper.](images/blueprint.png)
+![The article as a blueprint](images/blueprint.png)
 :::
 
 ::: {.column width="50%"}
-![A complex building, based on the blueprint but with messy, undocumented features, representing the actual code.](images/blueprint_result.png)
+![Does the blueprint precisely describe what we implemented?](images/blueprint_result.png)
 :::
 
 :::
@@ -454,7 +457,7 @@ The core discovery holds up under new scrutiny. This is the gold standard: **rep
 
 ---
 
-## The Case of the Vague Paper: A Rogues' Gallery {.smaller}
+## A Rogues' Gallery of Vague Papers {.smaller}
 
 :::: {.columns}
 ::: {.column width="25%"}
@@ -487,7 +490,7 @@ The core discovery holds up under new scrutiny. This is the gold standard: **rep
 
 ---
 
-## A Checklist for Clarity
+## A Checklist for Clarity {.smaller}
 
 A paper that perfectly describes its method is resilient and trustworthy. Here’s how to write one.
 
@@ -502,18 +505,17 @@ A paper that perfectly describes its method is resilient and trustworthy. Here�
 
 ##  A Checklist for Clarity
 ::: {.callout-tip icon="true"}
-## The Gold Standard
+## A Gold Standard
 
-Journals like **IPOL (Image Processing On Line)** are built on this principle. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method's preservation and validity.
+Journals like **IPOL (Image Processing On Line)** are built on algorithmic reproducibility. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method's preservation and validity.
 :::
 <embed src="ipol_article.pdf" width="100%" height="800" type="application/pdf">
 
-### Demo
 ##  A Checklist for Clarity
 ::: {.callout-tip icon="true"}
-## The Gold Standard
+## A Gold Standard
 
-Journals like **IPOL (Image Processing On Line)** are built on this principle. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method's preservation and validity.
+Journals like **IPOL (Image Processing On Line)** are built on algorithmic reproducibility. The implementation and article are peer-reviewed side-by-side to ensure the article details the method well-enough that it could be re-implemented from scratch. This guarantees the method's preservation and validity.
 :::
 <iframe src="https://ipolcore.ipol.im/demo/clientApp/demo.html?id=420&archive=791228" width="100%" height="800px" style="border:none; display:block; margin:0 auto; background-color:white"></iframe>
 
@@ -805,7 +807,7 @@ Go beyond the PDF. A demo makes your work discoverable and understandable to a m
 ::: {.column width="33%"}
 #### 💬
 #### Usability & Feedback
-Let people *use* your research. It's the fastest way to get feedback, find bugs, and spark collaborations.
+Let people *use* your research. It's the fastest way to test replicability, get feedback, find bugs, and spark collaborations.
 :::
 ::: {.column width="33%"}
 #### ✅
@@ -814,7 +816,13 @@ A working demo is the ultimate proof that your code isn't just theory. It runs, 
 :::
 :::
 
----
+## Our demo target
+[Eloi Tanguy, Julie Delon, Nathaël Gozlan, «Un algorithme de point fixe pour calculer des barycentres robustes entre mesures».](https://github.com/eloitanguy/ot_bar)
+
+<embed src="article_label_reproductible.pdf" width="100%" height="800" type="application/pdf">
+
+
+
 
 ## Create a demo with Streamlit
 
@@ -900,18 +908,10 @@ if run_btn:
 
 Locally : `uv run streamlit run app.py` (or, without `uv`, `streamlit run app.py`)
 
-Making your app public is also easy with Streamlit Community Cloud (free).
-
-```{.mermaid}
-flowchart LR
-    A["<img src='[https://cdn.iconscout.com/icon/free/png-256/free-github-153-675523.png](https://cdn.iconscout.com/icon/free/png-256/free-github-153-675523.png)' width='50' /><br>1. Push to GitHub"]
-    B["<img src='[https://streamlit.io/images/brand/logo-mark-color.png](https://streamlit.io/images/brand/logo-mark-color.png)' width='50' /><br>2. Connect to Streamlit Cloud"]
-    C["<img src='[https://cdn.iconscout.com/icon/free/png-256/free-link-133-461719.png](https://cdn.iconscout.com/icon/free/png-256/free-link-133-461719.png)' width='50' /><br>3. Get a Public URL!"]
-    
-    A --> B --> C
-```
+Making your app public is also easy and free with Streamlit Community Cloud.
 
 **Key Steps:**
+
 1.  Put your app, `pyproject.toml`, `uv.lock`, and a `packages.txt` file in a public GitHub repo.
 2.  In Streamlit Cloud, link your repo.
 3.  Point to your main file path (e.g., `demo/app.py`).
@@ -1084,7 +1084,7 @@ Even more complex, excellent versatility within the Plotly environment.
 
 ---
 
-## Towards full reproducibility with IPOL
+## Towards full reproducibility
 
 * Image Processing On Line (IPOL) is a **journal** and **demo system**
 * Submissions to IPOL are tripartite:
@@ -1093,7 +1093,6 @@ Even more complex, excellent versatility within the Plotly environment.
     * an online demo
 
 ## IPOL demo: a Dockerfile
-````
 
 ```dockerfile
 FROM registry.ipol.im/ipol:v2-py3.11
