@@ -1084,6 +1084,26 @@ Even more complex, excellent versatility within the Plotly environment.
 
 ---
 
+## Demo Decay: When Hugging Face Links Break
+
+::: {.slide}
+
+- Many recent **Computer Vision papers** advertise a Hugging Face demo in their README.
+- After 1–2 years, a surprising number of these demos are **no longer working**:
+  - **Build errors**, **runtime failures**, or **deprecated Spaces**.
+  - Examples: *UniCL (CVPR 2022)*, *MonoScene (CVPR 2022)*, *TokenCut (CVPR 2022)*, *LaMa demo*, *Drawings-to-Human*, …
+- Implication:  
+  - *Initial excitement* (easy try-it-yourself)  
+  - → *Rapid decay* (hard to reproduce/interact later)
+
+::: {.callout-note}
+**Lesson:** Reproducibility is not only about publishing code/data, but also about **maintaining interactive demos** (or providing a fallback).
+:::
+:::
+
+
+---
+
 ## Towards full reproducibility
 
 * Image Processing On Line (IPOL) is a **journal** and **demo system**
