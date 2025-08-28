@@ -1113,7 +1113,6 @@ Even more complex, excellent versatility within the Plotly environment.
 :::
 
 
----
 
 ## Towards full reproducibility
 
