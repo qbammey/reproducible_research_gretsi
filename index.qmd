@@ -18,17 +18,26 @@ format:
       numbers: true
 ---
 
-## Title Slide {.title-slide}
+## Reproducible Research: From Code to Career {.title-slide}:
 
-QR CODE HERE TBD
+:::: {.columns}
+:::{.column width=65%}
+### How to save time, build trust, and maximize your impact
+
+**Quentin Bammey (EPFL, IVRL), Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli), Adrien Krähenbühl (Unistra, ICube)**
+
+:::
+::: {.column width=35%}
+![](images/qrcode.png)
+<small>[Slides: bammey.com/gretsi](https://bammey.com/gretsi/)</small>
+<small>[Code to the slides and demo: github.com/qbammey/reproducible_research_gretsi](https://github.com/qbammey/reproducible_research_gretsi)</small>
+:::
+::::
 
 ::: footer
-Get all the code from this session.
+![](images/epfl.svg) ![](images/ivrl.png) ![](images/ens.png) ![](images/cgb.png) ![](images/unistra.png) ![](images/icube.png)
 :::
 
-::: notes
-Good morning everyone, and welcome. My goal over the next hour is to give you a set of practical tools that can fundamentally change the impact of your research. But first, I want to start with a quick show of hands...
-:::
 
 
 ## A new SOTA has been established!
@@ -241,7 +250,9 @@ The difference between Clara and Maria comes down to this single principle. For 
 The good news is that everything Maria did is accessible to all of us. It doesn't require being a software engineering expert. It just requires knowing a few key tools and a simple workflow. That is our mission for the rest of this session. We'll establish a clear framework, I'll walk you through the essential tools in a live demo, and we'll see the payoff by building an interactive demo. By the end, you'll have a practical plan to ensure your next great idea has the impact it deserves. Let's get started.
 :::
 
-# The pillars of reproducibility
+# The pillars of reproducibility {visibility="hidden"}
+
+## The pillars of reproducibility
 
 To understand these concepts, let's run a simple experiment: can a small neural network tell the difference between a T-shirt and a pair of Trousers?
 
@@ -461,13 +472,13 @@ The core discovery holds up under new scrutiny. This is the gold standard: **rep
 
 :::: {.columns}
 ::: {.column width="25%"}
-![The Magic Number](images/mugshot_number.png)
+![The Magic Number](images/mugshot_number.png){fig-align="center" height="250"}
 
 **Crime:** Unexplained constants critical to performance.
 *Example: `learning_rate = 0.00137`.*
 :::
 ::: {.column width="25%"}
-![The Vague Preprocessing](images/mugshot_image.png)
+![The Vague Preprocessing](images/mugshot_image.png){fig-align="center" height="250"}
 
 **Crime:** Hand-wavy descriptions of data preparation.
 *Example: "...images were normalized..."*
@@ -475,16 +486,16 @@ The core discovery holds up under new scrutiny. This is the gold standard: **rep
 
 
 ::: {.column width="25%"}
-![The Undocumented Trick](images/mugshot_rabbit.png)
+![The Undocumented Trick](images/mugshot_rabbit.png){fig-align="center" height="250"}
 
 **Crime:** Crucial implementation details absent from the paper.
-*Example: Using gradient clipping or a specific weight initialization, filtering out results in saturated regions of an image.*
+*Example: Gradient clipping, specific weight initialization, filtering out detections in saturated areas.*
 :::
 ::: {.column width="25%"}
-![The Vague data](images/mugshot_film.png)
+![The Vague data](images/mugshot_film.png){fig-align="center" height="250"}
 
 **Crime:** Vague description of the training/evaluation data.
-*Example: Using unreferenced datasets, vague description of the data that was acquired for this paper.*
+*Example: vague data acquisition description.*
 :::
 ::::
 
@@ -752,7 +763,7 @@ The user needs the NVIDIA Container Toolkit and a sufficiently new driver.
 #### The Polyglot Project
 Your code might mix Python, C++, Rust, other libraries...
 
-[TBD Logos of languages](images/polyglot_logos.png)
+![](images/languages.png)
 :::
 ::: {.column width="50%"}
 #### The Solution
@@ -1261,8 +1272,12 @@ USER ipol
 
 <iframe src="https://ipolcore.ipol.im/demo/clientApp/demo.html?id=77777000513&archive=791279" width="100%" height="600px" style="border:none; display:block; margin:0 auto; background-color:white"></iframe>
 
-# Conclusion
+# Conclusion {visibility="hidden"}
 
 ## To conclude
 
-TBD
+* Designing clean, reproducible, and easy-to-use implementations helps **build trust** and **maximize your impact**.
+* Small cost up-front, will save you (and others) lots of time
+* Once the code is well-packaged with clear dependencies, easy to turn into a demo
+* Still some obstacles such as hardware dependencies, but this is getting better.
+* Beyond implementation reproducibility: algorithm reproducibility is essential to trust what the code does (e. g. IPOL article)
