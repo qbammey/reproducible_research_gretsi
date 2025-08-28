@@ -21,11 +21,19 @@ format:
 
 :::: {.columns}
 :::{.column width=65%}
-### How to save time, build trust, and maximize your impact
+#### How to save time, build trust, and maximize your impact
 
-**Quentin Bammey (EPFL, IVRL), Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli, Institut Universitaire de France), Adrien Krähenbühl (Unistra, ICube)**
+<small>
 
-![](images/epfl.svg){height="30"} ![](images/ivrl.png){height="30"} ![](images/ens.png){height="30"} ![](images/cgb.png){height="30"} ![](images/iuf.png){height="30"} ![](images/unistra.png){height="30"} ![](images/icube.png){height="30"}
+Quentin Bammey (EPFL, IVRL)
+
+Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli, IUF)
+
+Adrien Krähenbühl (Unistra, ICube)
+
+</small>
+
+![](images/epfl.svg){height="28"} ![](images/ivrl.png){height="35"} ![](images/ens.png){height="30"} ![](images/cgb.png){height="35"} ![](images/iuf.png){height="35"} ![](images/unistra.png){height="35"} ![](images/icube.png){height="30"}
 
 :::
 ::: {.column width=35%}
@@ -121,7 +129,7 @@ Traceback (most recent call last):
 ## Our Collective Technical Debt
 
 
-![](https://i.imgur.com/c4jt321.png){fig-align="center" width="400"}
+![](images/thisisfine.png){fig-align="center" width="400"}
 
 
 * The magic parameter `alpha = 0.87` (source: unknown).

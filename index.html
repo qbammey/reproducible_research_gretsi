@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/tabby.min.js"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -193,6 +193,9 @@
   <script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
   <script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
   <link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -205,9 +208,13 @@
 <h2>Reproducible Research: From Code to Career</h2>
 <div class="columns">
 <div class="column" style="width:65%;">
-<h3 id="how-to-save-time-build-trust-and-maximize-your-impact">How to save time, build trust, and maximize your impact</h3>
-<p><strong>Quentin Bammey (EPFL, IVRL), Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli, Institut Universitaire de France), Adrien Krähenbühl (Unistra, ICube)</strong></p>
-<p><img data-src="images/epfl.svg" height="30"> <img data-src="images/ivrl.png" height="30"> <img data-src="images/ens.png" height="30"> <img data-src="images/cgb.png" height="30"> <img data-src="images/iuf.png" height="30"> <img data-src="images/unistra.png" height="30"> <img data-src="images/icube.png" height="30"></p>
+<h4 id="how-to-save-time-build-trust-and-maximize-your-impact">How to save time, build trust, and maximize your impact</h4>
+<p><small></small></p><small>
+<p>Quentin Bammey (EPFL, IVRL)</p>
+<p>Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli, IUF)</p>
+<p>Adrien Krähenbühl (Unistra, ICube)</p>
+</small><p><small></small></p>
+<p><img data-src="images/epfl.svg" height="28"> <img data-src="images/ivrl.png" height="35"> <img data-src="images/ens.png" height="30"> <img data-src="images/cgb.png" height="35"> <img data-src="images/iuf.png" height="35"> <img data-src="images/unistra.png" height="35"> <img data-src="images/icube.png" height="30"></p>
 </div><div class="column" style="width:35%;">
 <p><img data-src="images/qrcode.png"> <small><a href="https://bammey.com/gretsi/">Slides: bammey.com/gretsi</a></small> <small><a href="https://github.com/qbammey/reproducible_research_gretsi">Code to the slides and demo: github.com/qbammey/reproducible_research_gretsi</a></small></p>
 </div></div>
@@ -275,7 +282,7 @@ Traceback (most recent call last):
 <h2>Our Collective Technical Debt</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://i.imgur.com/c4jt321.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="https://i.imgur.com/c4jt321.png" class="quarto-figure quarto-figure-center" width="400"></a></p>
+<p><a href="images/thisisfine.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="images/thisisfine.png" class="quarto-figure quarto-figure-center" width="400"></a></p>
 </figure>
 </div>
 <ul>
@@ -474,7 +481,7 @@ Traceback (most recent call last):
 <section id="the-pillars-of-reproducibility-1" class="slide level2">
 <h2>The pillars of reproducibility</h2>
 <p>To understand these concepts, let’s run a simple experiment: can a small neural network tell the difference between a T-shirt and a pair of Trousers?</p>
-<div id="56796852" class="cell">
+<div id="3605c1b3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href=""></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_openml</span>
 <span id="cb1-3"><a href=""></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
@@ -522,8 +529,52 @@ Traceback (most recent call last):
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-
+<div id="63460f80" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed used for both runs: 42
+Accuracy of Run 1: 0.9850
+Accuracy of Run 2: 0.9850</code></pre>
+</div>
+</div>
 </div><div class="column" style="width:50%;">
+<div id="ad77719c" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.1.0.min"</script>
+        
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="4c9219f0-551e-4273-b91a-94fe868aeee3" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("4c9219f0-551e-4273-b91a-94fe868aeee3")) {                    Plotly.newPlot(                        "4c9219f0-551e-4273-b91a-94fe868aeee3",                        [{"name":"Run 1","x":["Accuracy"],"y":[0.985],"type":"bar"},{"name":"Run 2","x":["Accuracy"],"y":[0.985],"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"yaxis":{"title":{"text":"Accuracy"},"range":[0.95,1.0]},"title":{"text":"Repeatability: Two Runs, Same Seed"},"barmode":"group","legend":{"title":{"text":"Experiment Run"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('4c9219f0-551e-4273-b91a-94fe868aeee3');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
 <p>Perfect match. This is <strong>repeatability</strong>.</p>
 </div></div>
 </section>
@@ -544,18 +595,61 @@ Traceback (most recent call last):
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="b78e631d" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="co"># We re-use the run_experiment function from the previous slide.</span></span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="co"># Run the experiment 5 times with different seeds</span></span>
-<span id="cb2-4"><a href=""></a>seeds <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">42</span>, <span class="dv">101</span>, <span class="dv">1337</span>, <span class="dv">2025</span>]</span>
-<span id="cb2-5"><a href=""></a>accuracies <span class="op">=</span> []</span>
-<span id="cb2-6"><a href=""></a><span class="cf">for</span> seed <span class="kw">in</span> seeds:</span>
-<span id="cb2-7"><a href=""></a>    acc <span class="op">=</span> run_experiment(seed)</span>
-<span id="cb2-8"><a href=""></a>    accuracies.append(acc)</span>
-<span id="cb2-9"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Seed: </span><span class="sc">{</span>seed<span class="sc">:&lt;4}</span><span class="ss"> -&gt; Accuracy: </span><span class="sc">{</span>acc<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bdb6b59a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># We re-use the run_experiment function from the previous slide.</span></span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="co"># Run the experiment 5 times with different seeds</span></span>
+<span id="cb3-4"><a href=""></a>seeds <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">42</span>, <span class="dv">101</span>, <span class="dv">1337</span>, <span class="dv">2025</span>]</span>
+<span id="cb3-5"><a href=""></a>accuracies <span class="op">=</span> []</span>
+<span id="cb3-6"><a href=""></a><span class="cf">for</span> seed <span class="kw">in</span> seeds:</span>
+<span id="cb3-7"><a href=""></a>    acc <span class="op">=</span> run_experiment(seed)</span>
+<span id="cb3-8"><a href=""></a>    accuracies.append(acc)</span>
+<span id="cb3-9"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"Seed: </span><span class="sc">{</span>seed<span class="sc">:&lt;4}</span><span class="ss"> -&gt; Accuracy: </span><span class="sc">{</span>acc<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 0    -&gt; Accuracy: 0.9904</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 42   -&gt; Accuracy: 0.9850</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 101  -&gt; Accuracy: 0.9904</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Seed: 1337 -&gt; Accuracy: 0.9868
+Seed: 2025 -&gt; Accuracy: 0.9850</code></pre>
+</div>
 </div>
 </div><div class="column" style="width:50%;">
+<div id="6ae97de8" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="6a795748-bdbb-4a5b-af20-c3427a2892c1" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("6a795748-bdbb-4a5b-af20-c3427a2892c1")) {                    Plotly.newPlot(                        "6a795748-bdbb-4a5b-af20-c3427a2892c1",                        [{"boxpoints":"all","jitter":0.3,"name":"Model Accuracy","pointpos":-1.8,"y":[0.9903571428571428,0.985,0.9903571428571428,0.9867857142857143,0.985],"type":"box"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"yaxis":{"title":{"text":"Accuracy"},"range":[0.95,1.0]},"title":{"text":"Reproducibility: Accuracy Across 5 Seeds"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('6a795748-bdbb-4a5b-af20-c3427a2892c1');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
 <p>Accuracy remains similar: this is reproducibility.</p>
 </div></div>
 </section>
@@ -578,33 +672,66 @@ Traceback (most recent call last):
 <p>Let’s challenge our finding by applying the <em>same model</em> to a new task: telling ‘Sandals’ from ‘Ankle Boots’.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="3ace798c" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="kw">def</span> run_replication_experiment(seed, class1_label, class2_label):</span>
-<span id="cb3-2"><a href=""></a>    <span class="co"># Load the same Fashion-MNIST dataset</span></span>
-<span id="cb3-3"><a href=""></a>    X, y <span class="op">=</span> fetch_openml(<span class="st">'Fashion-MNIST'</span>, version<span class="op">=</span><span class="dv">1</span>, return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">False</span>, parser<span class="op">=</span><span class="st">'liac-arff'</span>)</span>
-<span id="cb3-4"><a href=""></a></span>
-<span id="cb3-5"><a href=""></a>    <span class="co"># Filter for two NEW classes: 'Sandal' (5) and 'Ankle Boot' (9)</span></span>
-<span id="cb3-6"><a href=""></a>    sandal_boot_indices <span class="op">=</span> np.where((y <span class="op">==</span> class1_label) <span class="op">|</span> (y <span class="op">==</span> class2_label))</span>
-<span id="cb3-7"><a href=""></a>    X_subset, y_subset <span class="op">=</span> X[sandal_boot_indices], y[sandal_boot_indices]</span>
-<span id="cb3-8"><a href=""></a>    </span>
-<span id="cb3-9"><a href=""></a>    <span class="co"># Split, train, and evaluate using the same model architecture</span></span>
-<span id="cb3-10"><a href=""></a>    X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb3-11"><a href=""></a>        X_subset, y_subset, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span>seed</span>
-<span id="cb3-12"><a href=""></a>    )</span>
-<span id="cb3-13"><a href=""></a>    model <span class="op">=</span> MLPClassifier(hidden_layer_sizes<span class="op">=</span>(<span class="dv">50</span>,), max_iter<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span>seed)</span>
-<span id="cb3-14"><a href=""></a>    model.fit(X_train, y_train)</span>
-<span id="cb3-15"><a href=""></a>    </span>
-<span id="cb3-16"><a href=""></a>    <span class="cf">return</span> accuracy_score(model.predict(X_test), y_test)</span>
-<span id="cb3-17"><a href=""></a><span class="co"># Run the replication experiment</span></span>
-<span id="cb3-18"><a href=""></a>accuracy_replication <span class="op">=</span> run_replication_experiment(seed<span class="op">=</span><span class="dv">42</span>, class1_label<span class="op">=</span><span class="st">'5'</span>, class2_label<span class="op">=</span><span class="st">'9'</span>)</span>
-<span id="cb3-19"><a href=""></a></span>
-<span id="cb3-20"><a href=""></a><span class="co"># For comparison, let's use our first result</span></span>
-<span id="cb3-21"><a href=""></a>accuracy_original <span class="op">=</span> accuracy_run_1 </span>
-<span id="cb3-22"><a href=""></a> </span>
-<span id="cb3-23"><a href=""></a><span class="co">#print(f"Original Task (T-shirt vs Trouser) Accuracy: {accuracy_original:.4f}")</span></span>
-<span id="cb3-24"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Replication Task (Sandal vs Boot) Accuracy: </span><span class="sc">{</span>accuracy_replication<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7477dfa8" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="kw">def</span> run_replication_experiment(seed, class1_label, class2_label):</span>
+<span id="cb8-2"><a href=""></a>    <span class="co"># Load the same Fashion-MNIST dataset</span></span>
+<span id="cb8-3"><a href=""></a>    X, y <span class="op">=</span> fetch_openml(<span class="st">'Fashion-MNIST'</span>, version<span class="op">=</span><span class="dv">1</span>, return_X_y<span class="op">=</span><span class="va">True</span>, as_frame<span class="op">=</span><span class="va">False</span>, parser<span class="op">=</span><span class="st">'liac-arff'</span>)</span>
+<span id="cb8-4"><a href=""></a></span>
+<span id="cb8-5"><a href=""></a>    <span class="co"># Filter for two NEW classes: 'Sandal' (5) and 'Ankle Boot' (9)</span></span>
+<span id="cb8-6"><a href=""></a>    sandal_boot_indices <span class="op">=</span> np.where((y <span class="op">==</span> class1_label) <span class="op">|</span> (y <span class="op">==</span> class2_label))</span>
+<span id="cb8-7"><a href=""></a>    X_subset, y_subset <span class="op">=</span> X[sandal_boot_indices], y[sandal_boot_indices]</span>
+<span id="cb8-8"><a href=""></a>    </span>
+<span id="cb8-9"><a href=""></a>    <span class="co"># Split, train, and evaluate using the same model architecture</span></span>
+<span id="cb8-10"><a href=""></a>    X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb8-11"><a href=""></a>        X_subset, y_subset, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span>seed</span>
+<span id="cb8-12"><a href=""></a>    )</span>
+<span id="cb8-13"><a href=""></a>    model <span class="op">=</span> MLPClassifier(hidden_layer_sizes<span class="op">=</span>(<span class="dv">50</span>,), max_iter<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span>seed)</span>
+<span id="cb8-14"><a href=""></a>    model.fit(X_train, y_train)</span>
+<span id="cb8-15"><a href=""></a>    </span>
+<span id="cb8-16"><a href=""></a>    <span class="cf">return</span> accuracy_score(model.predict(X_test), y_test)</span>
+<span id="cb8-17"><a href=""></a><span class="co"># Run the replication experiment</span></span>
+<span id="cb8-18"><a href=""></a>accuracy_replication <span class="op">=</span> run_replication_experiment(seed<span class="op">=</span><span class="dv">42</span>, class1_label<span class="op">=</span><span class="st">'5'</span>, class2_label<span class="op">=</span><span class="st">'9'</span>)</span>
+<span id="cb8-19"><a href=""></a></span>
+<span id="cb8-20"><a href=""></a><span class="co"># For comparison, let's use our first result</span></span>
+<span id="cb8-21"><a href=""></a>accuracy_original <span class="op">=</span> accuracy_run_1 </span>
+<span id="cb8-22"><a href=""></a> </span>
+<span id="cb8-23"><a href=""></a><span class="co">#print(f"Original Task (T-shirt vs Trouser) Accuracy: {accuracy_original:.4f}")</span></span>
+<span id="cb8-24"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Replication Task (Sandal vs Boot) Accuracy: </span><span class="sc">{</span>accuracy_replication<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Replication Task (Sandal vs Boot) Accuracy: 0.9800</code></pre>
+</div>
 </div>
 </div><div class="column" style="width:50%;">
+<div id="6c4e1674" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.1.0.min.js" integrity="sha256-Ei4740bWZhaUTQuD6q9yQlgVCMPBz6CZWhevDYPv93A=" crossorigin="anonymous"></script>                <div id="461a9fdb-e65c-4506-82a0-c7737f6e13c0" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("461a9fdb-e65c-4506-82a0-c7737f6e13c0")) {                    Plotly.newPlot(                        "461a9fdb-e65c-4506-82a0-c7737f6e13c0",                        [{"name":"Original Study","x":["T-shirt vs Trouser"],"y":[0.985],"type":"bar"},{"name":"Replication Study","x":["Sandal vs Ankle Boot"],"y":[0.98],"type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"yaxis":{"title":{"text":"Accuracy"},"range":[0.9,1.0]},"title":{"text":"Replicability: Testing the Finding on New Data"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('461a9fdb-e65c-4506-82a0-c7737f6e13c0');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
 <p>The core discovery holds up under new scrutiny. This is the gold standard: <strong>replicability</strong>.</p>
 </div></div>
 </section>
@@ -783,25 +910,25 @@ Traceback (most recent call last):
 <div class="columns">
 <div class="column" style="width:28%;">
 <p><strong>❌</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href=""></a># requirements.txt</span>
-<span id="cb4-2"><a href=""></a>numpy</span>
-<span id="cb4-3"><a href=""></a>torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href=""></a># requirements.txt</span>
+<span id="cb10-2"><a href=""></a>numpy</span>
+<span id="cb10-3"><a href=""></a>torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:28%;">
 <p><strong>❌</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href=""></a># requirements.txt</span>
-<span id="cb5-2"><a href=""></a>numpy</span>
-<span id="cb5-3"><a href=""></a>torch</span>
-<span id="cb5-4"><a href=""></a>tqdm</span>
-<span id="cb5-5"><a href=""></a>pillow</span>
-<span id="cb5-6"><a href=""></a>imageio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href=""></a># requirements.txt</span>
+<span id="cb11-2"><a href=""></a>numpy</span>
+<span id="cb11-3"><a href=""></a>torch</span>
+<span id="cb11-4"><a href=""></a>tqdm</span>
+<span id="cb11-5"><a href=""></a>pillow</span>
+<span id="cb11-6"><a href=""></a>imageio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:39%;">
 <p><strong>✅</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href=""></a># requirements.txt</span>
-<span id="cb6-2"><a href=""></a>numpy==1.26.4</span>
-<span id="cb6-3"><a href=""></a>torch==2.4.1</span>
-<span id="cb6-4"><a href=""></a>tqdm==4.4.1</span>
-<span id="cb6-5"><a href=""></a>pillow=11.3.0</span>
-<span id="cb6-6"><a href=""></a>imageio==2.37.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href=""></a># requirements.txt</span>
+<span id="cb12-2"><a href=""></a>numpy==1.26.4</span>
+<span id="cb12-3"><a href=""></a>torch==2.4.1</span>
+<span id="cb12-4"><a href=""></a>tqdm==4.4.1</span>
+<span id="cb12-5"><a href=""></a>pillow=11.3.0</span>
+<span id="cb12-6"><a href=""></a>imageio==2.37.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <p><strong>But:</strong> a <code>requirements.txt</code> doesn’t lock the dependencies <em>of your dependencies</em>. Results can still vary.</p>
 </section>
@@ -820,31 +947,31 @@ Traceback (most recent call last):
 <div class="columns">
 <div class="column" style="width:50%;">
 <h4 id="for-the-author">1. For the Author</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href=""></a><span class="co"># Initialize a new project</span></span>
-<span id="cb7-2"><a href=""></a><span class="ex">$</span> uv init</span>
-<span id="cb7-3"><a href=""></a></span>
-<span id="cb7-4"><a href=""></a><span class="co"># Pin a Python version</span></span>
-<span id="cb7-5"><a href=""></a><span class="ex">$</span> uv python pin 3.11</span>
-<span id="cb7-6"><a href=""></a></span>
-<span id="cb7-7"><a href=""></a><span class="co"># Add packages to pyproject.toml</span></span>
-<span id="cb7-8"><a href=""></a><span class="co"># and generate a uv.lock file</span></span>
-<span id="cb7-9"><a href=""></a><span class="ex">$</span> uv add numpy==1.26.4 torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href=""></a><span class="co"># Initialize a new project</span></span>
+<span id="cb13-2"><a href=""></a><span class="ex">$</span> uv init</span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="co"># Pin a Python version</span></span>
+<span id="cb13-5"><a href=""></a><span class="ex">$</span> uv python pin 3.11</span>
+<span id="cb13-6"><a href=""></a></span>
+<span id="cb13-7"><a href=""></a><span class="co"># Add packages to pyproject.toml</span></span>
+<span id="cb13-8"><a href=""></a><span class="co"># and generate a uv.lock file</span></span>
+<span id="cb13-9"><a href=""></a><span class="ex">$</span> uv add numpy==1.26.4 torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <h4 id="for-the-user">2. For the User</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href=""></a><span class="co"># Clone the repository</span></span>
-<span id="cb8-2"><a href=""></a><span class="ex">$</span> git clone ...</span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="co"># Install the EXACT environment</span></span>
-<span id="cb8-5"><a href=""></a><span class="co"># from the uv.lock file</span></span>
-<span id="cb8-6"><a href=""></a><span class="ex">$</span> uv sync</span>
-<span id="cb8-7"><a href=""></a></span>
-<span id="cb8-8"><a href=""></a><span class="co"># Run the code</span></span>
-<span id="cb8-9"><a href=""></a><span class="ex">$</span> uv run predict.py  <span class="co"># equivalent to uv run python predict.py</span></span>
-<span id="cb8-10"><a href=""></a><span class="ex">$</span> uv run my_executable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href=""></a><span class="co"># Clone the repository</span></span>
+<span id="cb14-2"><a href=""></a><span class="ex">$</span> git clone ...</span>
+<span id="cb14-3"><a href=""></a></span>
+<span id="cb14-4"><a href=""></a><span class="co"># Install the EXACT environment</span></span>
+<span id="cb14-5"><a href=""></a><span class="co"># from the uv.lock file</span></span>
+<span id="cb14-6"><a href=""></a><span class="ex">$</span> uv sync</span>
+<span id="cb14-7"><a href=""></a></span>
+<span id="cb14-8"><a href=""></a><span class="co"># Run the code</span></span>
+<span id="cb14-9"><a href=""></a><span class="ex">$</span> uv run predict.py  <span class="co"># equivalent to uv run python predict.py</span></span>
+<span id="cb14-10"><a href=""></a><span class="ex">$</span> uv run my_executable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <p>Use <code>uv</code> from the beginning, even when experimenting and developing!</p>
 <p>To use libraries without packaging them in the final environment (e. g. Jupyter notebooks):</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href=""></a><span class="ex">$</span> uv run <span class="at">--with</span> jupyter <span class="at">--with</span> matplotlib jupyter lab </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href=""></a><span class="ex">$</span> uv run <span class="at">--with</span> jupyter <span class="at">--with</span> matplotlib jupyter lab </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="when-python-isnt-enough" class="slide level2">
 <h2>When Python Isn’t Enough…</h2>
@@ -864,26 +991,26 @@ Traceback (most recent call last):
 <h2>Level 4: The ‘Computer in a File’</h2>
 <p><strong>Solution:</strong> A <strong>Container</strong> (like Docker) packages everything: Code + Python Environment + OS Libraries.</p>
 <h3 id="hands-on-the-dockerfile-recipe">Hands-On: The <code>Dockerfile</code> Recipe</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb10-1"><a href=""></a><span class="co"># Start from a specific Python base image</span></span>
-<span id="cb10-2"><a href=""></a><span class="kw">FROM</span> python:3.11-slim</span>
-<span id="cb10-3"><a href=""></a></span>
-<span id="cb10-4"><a href=""></a><span class="co"># Set working directory</span></span>
-<span id="cb10-5"><a href=""></a><span class="kw">WORKDIR</span> /app</span>
-<span id="cb10-6"><a href=""></a></span>
-<span id="cb10-7"><a href=""></a><span class="co"># Install uv</span></span>
-<span id="cb10-8"><a href=""></a><span class="kw">RUN</span> <span class="ex">pip</span> install uv</span>
-<span id="cb10-9"><a href=""></a></span>
-<span id="cb10-10"><a href=""></a><span class="co"># Copy ONLY the lock files</span></span>
-<span id="cb10-11"><a href=""></a><span class="kw">COPY</span> pyproject.toml uv.lock ./</span>
-<span id="cb10-12"><a href=""></a></span>
-<span id="cb10-13"><a href=""></a><span class="co"># Install the exact Python env</span></span>
-<span id="cb10-14"><a href=""></a><span class="kw">RUN</span> <span class="ex">uv</span> sync <span class="at">--no-cache</span></span>
-<span id="cb10-15"><a href=""></a></span>
-<span id="cb10-16"><a href=""></a><span class="co"># Copy the rest of your code</span></span>
-<span id="cb10-17"><a href=""></a><span class="kw">COPY</span> . .</span>
-<span id="cb10-18"><a href=""></a></span>
-<span id="cb10-19"><a href=""></a><span class="co"># Define a default command</span></span>
-<span id="cb10-20"><a href=""></a><span class="kw">CMD</span> [<span class="st">"uv"</span>, <span class="st">"run"</span>, <span class="st">"python"</span>, <span class="st">"predict.py"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb16-1"><a href=""></a><span class="co"># Start from a specific Python base image</span></span>
+<span id="cb16-2"><a href=""></a><span class="kw">FROM</span> python:3.11-slim</span>
+<span id="cb16-3"><a href=""></a></span>
+<span id="cb16-4"><a href=""></a><span class="co"># Set working directory</span></span>
+<span id="cb16-5"><a href=""></a><span class="kw">WORKDIR</span> /app</span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a><span class="co"># Install uv</span></span>
+<span id="cb16-8"><a href=""></a><span class="kw">RUN</span> <span class="ex">pip</span> install uv</span>
+<span id="cb16-9"><a href=""></a></span>
+<span id="cb16-10"><a href=""></a><span class="co"># Copy ONLY the lock files</span></span>
+<span id="cb16-11"><a href=""></a><span class="kw">COPY</span> pyproject.toml uv.lock ./</span>
+<span id="cb16-12"><a href=""></a></span>
+<span id="cb16-13"><a href=""></a><span class="co"># Install the exact Python env</span></span>
+<span id="cb16-14"><a href=""></a><span class="kw">RUN</span> <span class="ex">uv</span> sync <span class="at">--no-cache</span></span>
+<span id="cb16-15"><a href=""></a></span>
+<span id="cb16-16"><a href=""></a><span class="co"># Copy the rest of your code</span></span>
+<span id="cb16-17"><a href=""></a><span class="kw">COPY</span> . .</span>
+<span id="cb16-18"><a href=""></a></span>
+<span id="cb16-19"><a href=""></a><span class="co"># Define a default command</span></span>
+<span id="cb16-20"><a href=""></a><span class="kw">CMD</span> [<span class="st">"uv"</span>, <span class="st">"run"</span>, <span class="st">"python"</span>, <span class="st">"predict.py"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now anyone with Docker can run your code, identically, <em>everywhere</em>.</p>
 </section>
 <section id="summary-climbing-the-ladder" class="slide level2">
@@ -907,8 +1034,8 @@ Traceback (most recent call last):
 <div class="column" style="width:50%;">
 <h4 id="solution-part-1-inside-the-container">Solution Part 1: Inside the Container</h4>
 <p>Use NVIDIA’s official base images in your <code>Dockerfile</code> to lock the CUDA Toolkit.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb11-1"><a href=""></a><span class="kw">FROM</span> nvidia/cuda:12.6.1-cudnn-devel-ubuntu22.04</span>
-<span id="cb11-2"><a href=""></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb17-1"><a href=""></a><span class="kw">FROM</span> nvidia/cuda:12.6.1-cudnn-devel-ubuntu22.04</span>
+<span id="cb17-2"><a href=""></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <h4 id="solution-part-2-on-the-host">Solution Part 2: On the Host</h4>
 <p>The user needs the NVIDIA Container Toolkit and a sufficiently new driver.</p>
@@ -956,8 +1083,8 @@ Traceback (most recent call last):
 <div class="tab-content">
 <div id="tabset-1-1">
 <p><strong>Problem:</strong> A command line with dozens of obscure, undocumented flags is hostile to users.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href=""></a><span class="co"># What do these even mean?!</span></span>
-<span id="cb12-2"><a href=""></a><span class="ex">$</span> python run.py <span class="at">-a</span> 0.1 <span class="at">-b</span> 32 <span class="at">--z_dim</span> 128 <span class="at">-fe_lr</span> 0.00137</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href=""></a><span class="co"># What do these even mean?!</span></span>
+<span id="cb18-2"><a href=""></a><span class="ex">$</span> python run.py <span class="at">-a</span> 0.1 <span class="at">-b</span> 32 <span class="at">--z_dim</span> 128 <span class="at">-fe_lr</span> 0.00137</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Solution:</strong> Use libraries like <code>Typer</code> or <code>Argparse</code> to create a clean, self-documenting CLI with help text.</p>
 </div>
 <div id="tabset-1-2">
@@ -1016,56 +1143,56 @@ Traceback (most recent call last):
 <h2>Example 1: A Minimal Demo</h2>
 <p>Here’s how to wrap a function in a simple user interface.</p>
 <p><a href="https://qbammey-r-example-demoexamplesoutlier-colour-transferapp-ymhhsf.streamlit.app">Live Demo</a></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># app.py</span></span>
-<span id="cb13-2"><a href=""></a><span class="im">import</span> io</span>
-<span id="cb13-3"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-4"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
-<span id="cb13-5"><a href=""></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb13-6"><a href=""></a><span class="im">import</span> run  <span class="co"># your run.py in the same folder</span></span>
-<span id="cb13-7"><a href=""></a></span>
-<span id="cb13-8"><a href=""></a>st.set_page_config(page_title<span class="op">=</span><span class="st">"OT Color Transfer (tutorial)"</span>, layout<span class="op">=</span><span class="st">"centered"</span>)</span>
-<span id="cb13-9"><a href=""></a>st.title(<span class="st">"🎨 OT Color Transfer (tutorial)"</span>)</span>
-<span id="cb13-10"><a href=""></a></span>
-<span id="cb13-11"><a href=""></a><span class="co"># uploads</span></span>
-<span id="cb13-12"><a href=""></a>base_file <span class="op">=</span> st.file_uploader(<span class="st">"Base image (to stylize)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
-<span id="cb13-13"><a href=""></a>target_file <span class="op">=</span> st.file_uploader(<span class="st">"Target image (style source)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
-<span id="cb13-14"><a href=""></a></span>
-<span id="cb13-15"><a href=""></a><span class="co"># parameters (defaults match run.py)</span></span>
-<span id="cb13-16"><a href=""></a>col1, col2 <span class="op">=</span> st.columns(<span class="dv">2</span>)</span>
-<span id="cb13-17"><a href=""></a><span class="cf">with</span> col1:</span>
-<span id="cb13-18"><a href=""></a>    downscale <span class="op">=</span> st.number_input(<span class="st">"Downscale size"</span>, min_value<span class="op">=</span><span class="dv">8</span>, max_value<span class="op">=</span><span class="dv">256</span>, value<span class="op">=</span><span class="dv">50</span>, step<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb13-19"><a href=""></a>    metric <span class="op">=</span> st.selectbox(<span class="st">"Metric"</span>, [<span class="st">"l2"</span>, <span class="st">"l1"</span>], index<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb13-20"><a href=""></a><span class="cf">with</span> col2:</span>
-<span id="cb13-21"><a href=""></a>    reg <span class="op">=</span> st.number_input(<span class="st">"Entropic reg (0 = EMD)"</span>, min_value<span class="op">=</span><span class="fl">0.0</span>, value<span class="op">=</span><span class="fl">0.0</span>, step<span class="op">=</span><span class="fl">0.01</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%.4f</span><span class="st">"</span>)</span>
-<span id="cb13-22"><a href=""></a>    sinkhorn_max_iter <span class="op">=</span> st.number_input(<span class="st">"Sinkhorn max iters"</span>, min_value<span class="op">=</span><span class="dv">100</span>, max_value<span class="op">=</span><span class="dv">20000</span>, value<span class="op">=</span><span class="dv">1000</span>, step<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb13-23"><a href=""></a></span>
-<span id="cb13-24"><a href=""></a>run_btn <span class="op">=</span> st.button(<span class="st">"Run"</span>)</span>
-<span id="cb13-25"><a href=""></a></span>
-<span id="cb13-26"><a href=""></a><span class="cf">if</span> run_btn:</span>
-<span id="cb13-27"><a href=""></a>    <span class="cf">if</span> base_file <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> target_file <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb13-28"><a href=""></a>        st.warning(<span class="st">"Please upload both images."</span>)</span>
-<span id="cb13-29"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb13-30"><a href=""></a>        <span class="co"># load to [0,1] float RGB</span></span>
-<span id="cb13-31"><a href=""></a>        base_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(base_file).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
-<span id="cb13-32"><a href=""></a>        target_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(target_file).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
-<span id="cb13-33"><a href=""></a></span>
-<span id="cb13-34"><a href=""></a>        styl <span class="op">=</span> run.color_transfer_ot(</span>
-<span id="cb13-35"><a href=""></a>            base_img<span class="op">=</span>base_img,</span>
-<span id="cb13-36"><a href=""></a>            target_img<span class="op">=</span>target_img,</span>
-<span id="cb13-37"><a href=""></a>            downscale<span class="op">=</span><span class="bu">int</span>(downscale),</span>
-<span id="cb13-38"><a href=""></a>            metric<span class="op">=</span>metric,</span>
-<span id="cb13-39"><a href=""></a>            reg<span class="op">=</span><span class="bu">float</span>(reg),</span>
-<span id="cb13-40"><a href=""></a>            sinkhorn_max_iter<span class="op">=</span><span class="bu">int</span>(sinkhorn_max_iter),</span>
-<span id="cb13-41"><a href=""></a>        )</span>
-<span id="cb13-42"><a href=""></a></span>
-<span id="cb13-43"><a href=""></a>        st.subheader(<span class="st">"Result"</span>)</span>
-<span id="cb13-44"><a href=""></a>        st.image(styl, use_container_width<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-45"><a href=""></a></span>
-<span id="cb13-46"><a href=""></a>        <span class="co"># quick download</span></span>
-<span id="cb13-47"><a href=""></a>        buf <span class="op">=</span> io.BytesIO()</span>
-<span id="cb13-48"><a href=""></a>        Image.fromarray((np.clip(styl, <span class="dv">0</span>, <span class="dv">1</span>) <span class="op">*</span> <span class="dv">255</span>).astype(np.uint8)).save(buf, <span class="bu">format</span><span class="op">=</span><span class="st">"PNG"</span>)</span>
-<span id="cb13-49"><a href=""></a>        st.download_button(<span class="st">"Download PNG"</span>, data<span class="op">=</span>buf.getvalue(), file_name<span class="op">=</span><span class="st">"stylized.png"</span>, mime<span class="op">=</span><span class="st">"image/png"</span>)</span>
-<span id="cb13-50"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co"># app.py</span></span>
+<span id="cb19-2"><a href=""></a><span class="im">import</span> io</span>
+<span id="cb19-3"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-4"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb19-5"><a href=""></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb19-6"><a href=""></a><span class="im">import</span> run  <span class="co"># your run.py in the same folder</span></span>
+<span id="cb19-7"><a href=""></a></span>
+<span id="cb19-8"><a href=""></a>st.set_page_config(page_title<span class="op">=</span><span class="st">"OT Color Transfer (tutorial)"</span>, layout<span class="op">=</span><span class="st">"centered"</span>)</span>
+<span id="cb19-9"><a href=""></a>st.title(<span class="st">"🎨 OT Color Transfer (tutorial)"</span>)</span>
+<span id="cb19-10"><a href=""></a></span>
+<span id="cb19-11"><a href=""></a><span class="co"># uploads</span></span>
+<span id="cb19-12"><a href=""></a>base_file <span class="op">=</span> st.file_uploader(<span class="st">"Base image (to stylize)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
+<span id="cb19-13"><a href=""></a>target_file <span class="op">=</span> st.file_uploader(<span class="st">"Target image (style source)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
+<span id="cb19-14"><a href=""></a></span>
+<span id="cb19-15"><a href=""></a><span class="co"># parameters (defaults match run.py)</span></span>
+<span id="cb19-16"><a href=""></a>col1, col2 <span class="op">=</span> st.columns(<span class="dv">2</span>)</span>
+<span id="cb19-17"><a href=""></a><span class="cf">with</span> col1:</span>
+<span id="cb19-18"><a href=""></a>    downscale <span class="op">=</span> st.number_input(<span class="st">"Downscale size"</span>, min_value<span class="op">=</span><span class="dv">8</span>, max_value<span class="op">=</span><span class="dv">256</span>, value<span class="op">=</span><span class="dv">50</span>, step<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb19-19"><a href=""></a>    metric <span class="op">=</span> st.selectbox(<span class="st">"Metric"</span>, [<span class="st">"l2"</span>, <span class="st">"l1"</span>], index<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb19-20"><a href=""></a><span class="cf">with</span> col2:</span>
+<span id="cb19-21"><a href=""></a>    reg <span class="op">=</span> st.number_input(<span class="st">"Entropic reg (0 = EMD)"</span>, min_value<span class="op">=</span><span class="fl">0.0</span>, value<span class="op">=</span><span class="fl">0.0</span>, step<span class="op">=</span><span class="fl">0.01</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%.4f</span><span class="st">"</span>)</span>
+<span id="cb19-22"><a href=""></a>    sinkhorn_max_iter <span class="op">=</span> st.number_input(<span class="st">"Sinkhorn max iters"</span>, min_value<span class="op">=</span><span class="dv">100</span>, max_value<span class="op">=</span><span class="dv">20000</span>, value<span class="op">=</span><span class="dv">1000</span>, step<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb19-23"><a href=""></a></span>
+<span id="cb19-24"><a href=""></a>run_btn <span class="op">=</span> st.button(<span class="st">"Run"</span>)</span>
+<span id="cb19-25"><a href=""></a></span>
+<span id="cb19-26"><a href=""></a><span class="cf">if</span> run_btn:</span>
+<span id="cb19-27"><a href=""></a>    <span class="cf">if</span> base_file <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> target_file <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb19-28"><a href=""></a>        st.warning(<span class="st">"Please upload both images."</span>)</span>
+<span id="cb19-29"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb19-30"><a href=""></a>        <span class="co"># load to [0,1] float RGB</span></span>
+<span id="cb19-31"><a href=""></a>        base_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(base_file).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
+<span id="cb19-32"><a href=""></a>        target_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(target_file).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
+<span id="cb19-33"><a href=""></a></span>
+<span id="cb19-34"><a href=""></a>        styl <span class="op">=</span> run.color_transfer_ot(</span>
+<span id="cb19-35"><a href=""></a>            base_img<span class="op">=</span>base_img,</span>
+<span id="cb19-36"><a href=""></a>            target_img<span class="op">=</span>target_img,</span>
+<span id="cb19-37"><a href=""></a>            downscale<span class="op">=</span><span class="bu">int</span>(downscale),</span>
+<span id="cb19-38"><a href=""></a>            metric<span class="op">=</span>metric,</span>
+<span id="cb19-39"><a href=""></a>            reg<span class="op">=</span><span class="bu">float</span>(reg),</span>
+<span id="cb19-40"><a href=""></a>            sinkhorn_max_iter<span class="op">=</span><span class="bu">int</span>(sinkhorn_max_iter),</span>
+<span id="cb19-41"><a href=""></a>        )</span>
+<span id="cb19-42"><a href=""></a></span>
+<span id="cb19-43"><a href=""></a>        st.subheader(<span class="st">"Result"</span>)</span>
+<span id="cb19-44"><a href=""></a>        st.image(styl, use_container_width<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-45"><a href=""></a></span>
+<span id="cb19-46"><a href=""></a>        <span class="co"># quick download</span></span>
+<span id="cb19-47"><a href=""></a>        buf <span class="op">=</span> io.BytesIO()</span>
+<span id="cb19-48"><a href=""></a>        Image.fromarray((np.clip(styl, <span class="dv">0</span>, <span class="dv">1</span>) <span class="op">*</span> <span class="dv">255</span>).astype(np.uint8)).save(buf, <span class="bu">format</span><span class="op">=</span><span class="st">"PNG"</span>)</span>
+<span id="cb19-49"><a href=""></a>        st.download_button(<span class="st">"Download PNG"</span>, data<span class="op">=</span>buf.getvalue(), file_name<span class="op">=</span><span class="st">"stylized.png"</span>, mime<span class="op">=</span><span class="st">"image/png"</span>)</span>
+<span id="cb19-50"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="deploying-your-demo" class="slide level2 scrollable">
 <h2>Deploying Your Demo</h2>
@@ -1083,131 +1210,131 @@ Traceback (most recent call last):
 <h2>How Far Can You Go? A Polished App</h2>
 <p>With a bit more code, a simple demo can become a polished application with caching, state management, and a better layout.</p>
 <p><a href="https://example-demoexamplesoutlier-colou-dq04w1.streamlit.app/">Live demo</a></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="im">import</span> io</span>
-<span id="cb14-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb14-3"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
-<span id="cb14-4"><a href=""></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb14-5"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb14-6"><a href=""></a></span>
-<span id="cb14-7"><a href=""></a><span class="co"># --- Import your research function ---</span></span>
-<span id="cb14-8"><a href=""></a><span class="im">import</span> run</span>
-<span id="cb14-9"><a href=""></a></span>
-<span id="cb14-10"><a href=""></a><span class="co"># --- Define the directory of the current script to find example images ---</span></span>
-<span id="cb14-11"><a href=""></a><span class="co"># This is the key to making file paths robust. `Path(__file__)` gets the path</span></span>
-<span id="cb14-12"><a href=""></a><span class="co"># to this .py file, and `.parent` gets the directory it's in.</span></span>
-<span id="cb14-13"><a href=""></a>SCRIPT_DIR <span class="op">=</span> Path(<span class="va">__file__</span>).parent</span>
-<span id="cb14-14"><a href=""></a></span>
-<span id="cb14-15"><a href=""></a><span class="co"># --- Page Configuration ---</span></span>
-<span id="cb14-16"><a href=""></a>st.set_page_config(</span>
-<span id="cb14-17"><a href=""></a>    page_title<span class="op">=</span><span class="st">"OT Color Transfer (Advanced)"</span>,</span>
-<span id="cb14-18"><a href=""></a>    layout<span class="op">=</span><span class="st">"wide"</span></span>
-<span id="cb14-19"><a href=""></a>)</span>
-<span id="cb14-20"><a href=""></a></span>
-<span id="cb14-21"><a href=""></a><span class="co"># --- Caching the Core Function ---</span></span>
-<span id="cb14-22"><a href=""></a><span class="at">@st.cache_data</span></span>
-<span id="cb14-23"><a href=""></a><span class="kw">def</span> cached_color_transfer(base_img_bytes, target_img_bytes, downscale, metric, reg, sinkhorn_max_iter):</span>
-<span id="cb14-24"><a href=""></a>    <span class="co">"""</span></span>
-<span id="cb14-25"><a href=""></a><span class="co">    A wrapper around the core function to make it cacheable.</span></span>
-<span id="cb14-26"><a href=""></a><span class="co">    We pass image bytes instead of numpy arrays because arrays are not hashable.</span></span>
-<span id="cb14-27"><a href=""></a><span class="co">    """</span></span>
-<span id="cb14-28"><a href=""></a>    base_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(io.BytesIO(base_img_bytes)).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
-<span id="cb14-29"><a href=""></a>    target_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(io.BytesIO(target_img_bytes)).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
-<span id="cb14-30"><a href=""></a>    </span>
-<span id="cb14-31"><a href=""></a>    <span class="cf">return</span> run.color_transfer_ot(</span>
-<span id="cb14-32"><a href=""></a>        base_img<span class="op">=</span>base_img,</span>
-<span id="cb14-33"><a href=""></a>        target_img<span class="op">=</span>target_img,</span>
-<span id="cb14-34"><a href=""></a>        downscale<span class="op">=</span><span class="bu">int</span>(downscale),</span>
-<span id="cb14-35"><a href=""></a>        metric<span class="op">=</span>metric,</span>
-<span id="cb14-36"><a href=""></a>        reg<span class="op">=</span><span class="bu">float</span>(reg),</span>
-<span id="cb14-37"><a href=""></a>        sinkhorn_max_iter<span class="op">=</span><span class="bu">int</span>(sinkhorn_max_iter),</span>
-<span id="cb14-38"><a href=""></a>    )</span>
-<span id="cb14-39"><a href=""></a></span>
-<span id="cb14-40"><a href=""></a><span class="co"># --- Helper function to load example images using pathlib ---</span></span>
-<span id="cb14-41"><a href=""></a><span class="kw">def</span> load_example_image(image_filename):</span>
-<span id="cb14-42"><a href=""></a>    <span class="co">"""Loads an image from a path relative to the script's directory."""</span></span>
-<span id="cb14-43"><a href=""></a>    <span class="co"># Construct the full, absolute path to the image</span></span>
-<span id="cb14-44"><a href=""></a>    image_path <span class="op">=</span> SCRIPT_DIR <span class="op">/</span> image_filename</span>
-<span id="cb14-45"><a href=""></a>    <span class="cf">with</span> <span class="bu">open</span>(image_path, <span class="st">"rb"</span>) <span class="im">as</span> f:</span>
-<span id="cb14-46"><a href=""></a>        <span class="cf">return</span> f.read()</span>
-<span id="cb14-47"><a href=""></a></span>
-<span id="cb14-48"><a href=""></a><span class="co"># --- Main App UI ---</span></span>
-<span id="cb14-49"><a href=""></a>st.title(<span class="st">"🎨 Advanced OT Color Transfer"</span>)</span>
-<span id="cb14-50"><a href=""></a>st.write(<span class="st">"This demo showcases a more robust Streamlit app with caching, state management, and error handling."</span>)</span>
-<span id="cb14-51"><a href=""></a></span>
-<span id="cb14-52"><a href=""></a><span class="co"># --- Sidebar for Inputs and Parameters ---</span></span>
-<span id="cb14-53"><a href=""></a><span class="cf">with</span> st.sidebar:</span>
-<span id="cb14-54"><a href=""></a>    st.header(<span class="st">"Inputs"</span>)</span>
-<span id="cb14-55"><a href=""></a>    </span>
-<span id="cb14-56"><a href=""></a>    <span class="co"># 2. Update the example options with your filenames and names</span></span>
-<span id="cb14-57"><a href=""></a>    example_options <span class="op">=</span> {</span>
-<span id="cb14-58"><a href=""></a>        <span class="st">"Example 1"</span>: (<span class="st">"B2.jpg"</span>, <span class="st">"A1.jpg"</span>),</span>
-<span id="cb14-59"><a href=""></a>        <span class="st">"Example 2"</span>: (<span class="st">"B2.jpg"</span>, <span class="st">"C1.jpg"</span>),</span>
-<span id="cb14-60"><a href=""></a>    }</span>
-<span id="cb14-61"><a href=""></a>    </span>
-<span id="cb14-62"><a href=""></a>    source_type <span class="op">=</span> st.radio(<span class="st">"Choose image source:"</span>, [<span class="st">"Upload your own"</span>, <span class="st">"Use an example"</span>], index<span class="op">=</span><span class="dv">1</span>) <span class="co"># Default to example</span></span>
-<span id="cb14-63"><a href=""></a></span>
-<span id="cb14-64"><a href=""></a>    <span class="cf">if</span> source_type <span class="op">==</span> <span class="st">"Upload your own"</span>:</span>
-<span id="cb14-65"><a href=""></a>        base_file <span class="op">=</span> st.file_uploader(<span class="st">"Base image (to stylize)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
-<span id="cb14-66"><a href=""></a>        target_file <span class="op">=</span> st.file_uploader(<span class="st">"Target image (style source)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
-<span id="cb14-67"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb14-68"><a href=""></a>        selected_example <span class="op">=</span> st.selectbox(<span class="st">"Select an example:"</span>, <span class="bu">list</span>(example_options.keys()))</span>
-<span id="cb14-69"><a href=""></a>        base_filename, target_filename <span class="op">=</span> example_options[selected_example]</span>
-<span id="cb14-70"><a href=""></a>        <span class="co"># Use our robust helper function to load the images</span></span>
-<span id="cb14-71"><a href=""></a>        base_file <span class="op">=</span> load_example_image(base_filename)</span>
-<span id="cb14-72"><a href=""></a>        target_file <span class="op">=</span> load_example_image(target_filename)</span>
-<span id="cb14-73"><a href=""></a></span>
-<span id="cb14-74"><a href=""></a>    st.header(<span class="st">"Parameters"</span>)</span>
-<span id="cb14-75"><a href=""></a>    <span class="cf">with</span> st.expander(<span class="st">"Algorithm Controls"</span>, expanded<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb14-76"><a href=""></a>        downscale <span class="op">=</span> st.number_input(<span class="st">"Downscale size"</span>, <span class="dv">8</span>, <span class="dv">256</span>, <span class="dv">50</span>, <span class="dv">1</span>)</span>
-<span id="cb14-77"><a href=""></a>        metric <span class="op">=</span> st.selectbox(<span class="st">"Metric"</span>, [<span class="st">"l2"</span>, <span class="st">"l1"</span>], <span class="dv">0</span>)</span>
-<span id="cb14-78"><a href=""></a>        reg <span class="op">=</span> st.number_input(<span class="st">"Entropic reg (0 = EMD)"</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">0.01</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%.4f</span><span class="st">"</span>)</span>
-<span id="cb14-79"><a href=""></a>        <span class="cf">if</span> reg <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb14-80"><a href=""></a>            sinkhorn_max_iter <span class="op">=</span> st.number_input(<span class="st">"Sinkhorn max iters"</span>, <span class="dv">100</span>, <span class="dv">20000</span>, <span class="dv">1000</span>, <span class="dv">100</span>)</span>
-<span id="cb14-81"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb14-82"><a href=""></a>            sinkhorn_max_iter <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb14-83"><a href=""></a></span>
-<span id="cb14-84"><a href=""></a>    run_btn <span class="op">=</span> st.button(<span class="st">"Run Style Transfer"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"primary"</span>)</span>
-<span id="cb14-85"><a href=""></a></span>
-<span id="cb14-86"><a href=""></a><span class="co"># --- Main Area for Displaying Images ---</span></span>
-<span id="cb14-87"><a href=""></a>col1, col2 <span class="op">=</span> st.columns(<span class="dv">2</span>)</span>
-<span id="cb14-88"><a href=""></a><span class="cf">if</span> base_file <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb14-89"><a href=""></a>    col1.image(base_file, caption<span class="op">=</span><span class="st">"Base Image"</span>, use_container_width<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-90"><a href=""></a><span class="cf">if</span> target_file <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb14-91"><a href=""></a>    col2.image(target_file, caption<span class="op">=</span><span class="st">"Target Style"</span>, use_container_width<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-92"><a href=""></a>    </span>
-<span id="cb14-93"><a href=""></a><span class="cf">if</span> run_btn:</span>
-<span id="cb14-94"><a href=""></a>    <span class="cf">if</span> base_file <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> target_file <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb14-95"><a href=""></a>        st.warning(<span class="st">"Please provide both a base and a target image."</span>)</span>
-<span id="cb14-96"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb14-97"><a href=""></a>        base_bytes <span class="op">=</span> base_file.getvalue() <span class="cf">if</span> <span class="bu">hasattr</span>(base_file, <span class="st">'getvalue'</span>) <span class="cf">else</span> base_file</span>
-<span id="cb14-98"><a href=""></a>        target_bytes <span class="op">=</span> target_file.getvalue() <span class="cf">if</span> <span class="bu">hasattr</span>(target_file, <span class="st">'getvalue'</span>) <span class="cf">else</span> target_file</span>
-<span id="cb14-99"><a href=""></a>        </span>
-<span id="cb14-100"><a href=""></a>        <span class="cf">with</span> st.spinner(<span class="st">'Stylizing image... this may take a moment.'</span>):</span>
-<span id="cb14-101"><a href=""></a>            <span class="cf">try</span>:</span>
-<span id="cb14-102"><a href=""></a>                stylized_image <span class="op">=</span> cached_color_transfer(</span>
-<span id="cb14-103"><a href=""></a>                    base_bytes, target_bytes, downscale, metric, reg, sinkhorn_max_iter</span>
-<span id="cb14-104"><a href=""></a>                )</span>
-<span id="cb14-105"><a href=""></a>                st.session_state[<span class="st">'last_result'</span>] <span class="op">=</span> stylized_image</span>
-<span id="cb14-106"><a href=""></a>            <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb14-107"><a href=""></a>                st.error(<span class="ss">f"An error occurred during processing: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb14-108"><a href=""></a>                <span class="cf">if</span> <span class="st">'last_result'</span> <span class="kw">in</span> st.session_state:</span>
-<span id="cb14-109"><a href=""></a>                    <span class="kw">del</span> st.session_state[<span class="st">'last_result'</span>]</span>
-<span id="cb14-110"><a href=""></a></span>
-<span id="cb14-111"><a href=""></a><span class="cf">if</span> <span class="st">'last_result'</span> <span class="kw">in</span> st.session_state:</span>
-<span id="cb14-112"><a href=""></a>    st.divider()</span>
-<span id="cb14-113"><a href=""></a>    st.header(<span class="st">"Result"</span>)</span>
-<span id="cb14-114"><a href=""></a>    result_image <span class="op">=</span> st.session_state[<span class="st">'last_result'</span>]</span>
-<span id="cb14-115"><a href=""></a>    st.image(result_image, caption<span class="op">=</span><span class="st">"Stylized Result"</span>, use_column_width<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-116"><a href=""></a></span>
-<span id="cb14-117"><a href=""></a>    buf <span class="op">=</span> io.BytesIO()</span>
-<span id="cb14-118"><a href=""></a>    Image.fromarray((np.clip(result_image, <span class="dv">0</span>, <span class="dv">1</span>) <span class="op">*</span> <span class="dv">255</span>).astype(np.uint8)).save(buf, <span class="bu">format</span><span class="op">=</span><span class="st">"PNG"</span>)</span>
-<span id="cb14-119"><a href=""></a>    st.download_button(</span>
-<span id="cb14-120"><a href=""></a>        <span class="st">"Download Result"</span>,</span>
-<span id="cb14-121"><a href=""></a>        data<span class="op">=</span>buf.getvalue(),</span>
-<span id="cb14-122"><a href=""></a>        file_name<span class="op">=</span><span class="st">"stylized_result.png"</span>,</span>
-<span id="cb14-123"><a href=""></a>        mime<span class="op">=</span><span class="st">"image/png"</span></span>
-<span id="cb14-124"><a href=""></a>    )</span>
-<span id="cb14-125"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="im">import</span> io</span>
+<span id="cb20-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb20-3"><a href=""></a><span class="im">import</span> streamlit <span class="im">as</span> st</span>
+<span id="cb20-4"><a href=""></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb20-5"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb20-6"><a href=""></a></span>
+<span id="cb20-7"><a href=""></a><span class="co"># --- Import your research function ---</span></span>
+<span id="cb20-8"><a href=""></a><span class="im">import</span> run</span>
+<span id="cb20-9"><a href=""></a></span>
+<span id="cb20-10"><a href=""></a><span class="co"># --- Define the directory of the current script to find example images ---</span></span>
+<span id="cb20-11"><a href=""></a><span class="co"># This is the key to making file paths robust. `Path(__file__)` gets the path</span></span>
+<span id="cb20-12"><a href=""></a><span class="co"># to this .py file, and `.parent` gets the directory it's in.</span></span>
+<span id="cb20-13"><a href=""></a>SCRIPT_DIR <span class="op">=</span> Path(<span class="va">__file__</span>).parent</span>
+<span id="cb20-14"><a href=""></a></span>
+<span id="cb20-15"><a href=""></a><span class="co"># --- Page Configuration ---</span></span>
+<span id="cb20-16"><a href=""></a>st.set_page_config(</span>
+<span id="cb20-17"><a href=""></a>    page_title<span class="op">=</span><span class="st">"OT Color Transfer (Advanced)"</span>,</span>
+<span id="cb20-18"><a href=""></a>    layout<span class="op">=</span><span class="st">"wide"</span></span>
+<span id="cb20-19"><a href=""></a>)</span>
+<span id="cb20-20"><a href=""></a></span>
+<span id="cb20-21"><a href=""></a><span class="co"># --- Caching the Core Function ---</span></span>
+<span id="cb20-22"><a href=""></a><span class="at">@st.cache_data</span></span>
+<span id="cb20-23"><a href=""></a><span class="kw">def</span> cached_color_transfer(base_img_bytes, target_img_bytes, downscale, metric, reg, sinkhorn_max_iter):</span>
+<span id="cb20-24"><a href=""></a>    <span class="co">"""</span></span>
+<span id="cb20-25"><a href=""></a><span class="co">    A wrapper around the core function to make it cacheable.</span></span>
+<span id="cb20-26"><a href=""></a><span class="co">    We pass image bytes instead of numpy arrays because arrays are not hashable.</span></span>
+<span id="cb20-27"><a href=""></a><span class="co">    """</span></span>
+<span id="cb20-28"><a href=""></a>    base_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(io.BytesIO(base_img_bytes)).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
+<span id="cb20-29"><a href=""></a>    target_img <span class="op">=</span> np.asarray(Image.<span class="bu">open</span>(io.BytesIO(target_img_bytes)).convert(<span class="st">"RGB"</span>), dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="fl">255.0</span></span>
+<span id="cb20-30"><a href=""></a>    </span>
+<span id="cb20-31"><a href=""></a>    <span class="cf">return</span> run.color_transfer_ot(</span>
+<span id="cb20-32"><a href=""></a>        base_img<span class="op">=</span>base_img,</span>
+<span id="cb20-33"><a href=""></a>        target_img<span class="op">=</span>target_img,</span>
+<span id="cb20-34"><a href=""></a>        downscale<span class="op">=</span><span class="bu">int</span>(downscale),</span>
+<span id="cb20-35"><a href=""></a>        metric<span class="op">=</span>metric,</span>
+<span id="cb20-36"><a href=""></a>        reg<span class="op">=</span><span class="bu">float</span>(reg),</span>
+<span id="cb20-37"><a href=""></a>        sinkhorn_max_iter<span class="op">=</span><span class="bu">int</span>(sinkhorn_max_iter),</span>
+<span id="cb20-38"><a href=""></a>    )</span>
+<span id="cb20-39"><a href=""></a></span>
+<span id="cb20-40"><a href=""></a><span class="co"># --- Helper function to load example images using pathlib ---</span></span>
+<span id="cb20-41"><a href=""></a><span class="kw">def</span> load_example_image(image_filename):</span>
+<span id="cb20-42"><a href=""></a>    <span class="co">"""Loads an image from a path relative to the script's directory."""</span></span>
+<span id="cb20-43"><a href=""></a>    <span class="co"># Construct the full, absolute path to the image</span></span>
+<span id="cb20-44"><a href=""></a>    image_path <span class="op">=</span> SCRIPT_DIR <span class="op">/</span> image_filename</span>
+<span id="cb20-45"><a href=""></a>    <span class="cf">with</span> <span class="bu">open</span>(image_path, <span class="st">"rb"</span>) <span class="im">as</span> f:</span>
+<span id="cb20-46"><a href=""></a>        <span class="cf">return</span> f.read()</span>
+<span id="cb20-47"><a href=""></a></span>
+<span id="cb20-48"><a href=""></a><span class="co"># --- Main App UI ---</span></span>
+<span id="cb20-49"><a href=""></a>st.title(<span class="st">"🎨 Advanced OT Color Transfer"</span>)</span>
+<span id="cb20-50"><a href=""></a>st.write(<span class="st">"This demo showcases a more robust Streamlit app with caching, state management, and error handling."</span>)</span>
+<span id="cb20-51"><a href=""></a></span>
+<span id="cb20-52"><a href=""></a><span class="co"># --- Sidebar for Inputs and Parameters ---</span></span>
+<span id="cb20-53"><a href=""></a><span class="cf">with</span> st.sidebar:</span>
+<span id="cb20-54"><a href=""></a>    st.header(<span class="st">"Inputs"</span>)</span>
+<span id="cb20-55"><a href=""></a>    </span>
+<span id="cb20-56"><a href=""></a>    <span class="co"># 2. Update the example options with your filenames and names</span></span>
+<span id="cb20-57"><a href=""></a>    example_options <span class="op">=</span> {</span>
+<span id="cb20-58"><a href=""></a>        <span class="st">"Example 1"</span>: (<span class="st">"B2.jpg"</span>, <span class="st">"A1.jpg"</span>),</span>
+<span id="cb20-59"><a href=""></a>        <span class="st">"Example 2"</span>: (<span class="st">"B2.jpg"</span>, <span class="st">"C1.jpg"</span>),</span>
+<span id="cb20-60"><a href=""></a>    }</span>
+<span id="cb20-61"><a href=""></a>    </span>
+<span id="cb20-62"><a href=""></a>    source_type <span class="op">=</span> st.radio(<span class="st">"Choose image source:"</span>, [<span class="st">"Upload your own"</span>, <span class="st">"Use an example"</span>], index<span class="op">=</span><span class="dv">1</span>) <span class="co"># Default to example</span></span>
+<span id="cb20-63"><a href=""></a></span>
+<span id="cb20-64"><a href=""></a>    <span class="cf">if</span> source_type <span class="op">==</span> <span class="st">"Upload your own"</span>:</span>
+<span id="cb20-65"><a href=""></a>        base_file <span class="op">=</span> st.file_uploader(<span class="st">"Base image (to stylize)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
+<span id="cb20-66"><a href=""></a>        target_file <span class="op">=</span> st.file_uploader(<span class="st">"Target image (style source)"</span>, <span class="bu">type</span><span class="op">=</span>[<span class="st">"jpg"</span>, <span class="st">"jpeg"</span>, <span class="st">"png"</span>])</span>
+<span id="cb20-67"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb20-68"><a href=""></a>        selected_example <span class="op">=</span> st.selectbox(<span class="st">"Select an example:"</span>, <span class="bu">list</span>(example_options.keys()))</span>
+<span id="cb20-69"><a href=""></a>        base_filename, target_filename <span class="op">=</span> example_options[selected_example]</span>
+<span id="cb20-70"><a href=""></a>        <span class="co"># Use our robust helper function to load the images</span></span>
+<span id="cb20-71"><a href=""></a>        base_file <span class="op">=</span> load_example_image(base_filename)</span>
+<span id="cb20-72"><a href=""></a>        target_file <span class="op">=</span> load_example_image(target_filename)</span>
+<span id="cb20-73"><a href=""></a></span>
+<span id="cb20-74"><a href=""></a>    st.header(<span class="st">"Parameters"</span>)</span>
+<span id="cb20-75"><a href=""></a>    <span class="cf">with</span> st.expander(<span class="st">"Algorithm Controls"</span>, expanded<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb20-76"><a href=""></a>        downscale <span class="op">=</span> st.number_input(<span class="st">"Downscale size"</span>, <span class="dv">8</span>, <span class="dv">256</span>, <span class="dv">50</span>, <span class="dv">1</span>)</span>
+<span id="cb20-77"><a href=""></a>        metric <span class="op">=</span> st.selectbox(<span class="st">"Metric"</span>, [<span class="st">"l2"</span>, <span class="st">"l1"</span>], <span class="dv">0</span>)</span>
+<span id="cb20-78"><a href=""></a>        reg <span class="op">=</span> st.number_input(<span class="st">"Entropic reg (0 = EMD)"</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">0.01</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"</span><span class="sc">%.4f</span><span class="st">"</span>)</span>
+<span id="cb20-79"><a href=""></a>        <span class="cf">if</span> reg <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb20-80"><a href=""></a>            sinkhorn_max_iter <span class="op">=</span> st.number_input(<span class="st">"Sinkhorn max iters"</span>, <span class="dv">100</span>, <span class="dv">20000</span>, <span class="dv">1000</span>, <span class="dv">100</span>)</span>
+<span id="cb20-81"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb20-82"><a href=""></a>            sinkhorn_max_iter <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb20-83"><a href=""></a></span>
+<span id="cb20-84"><a href=""></a>    run_btn <span class="op">=</span> st.button(<span class="st">"Run Style Transfer"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"primary"</span>)</span>
+<span id="cb20-85"><a href=""></a></span>
+<span id="cb20-86"><a href=""></a><span class="co"># --- Main Area for Displaying Images ---</span></span>
+<span id="cb20-87"><a href=""></a>col1, col2 <span class="op">=</span> st.columns(<span class="dv">2</span>)</span>
+<span id="cb20-88"><a href=""></a><span class="cf">if</span> base_file <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb20-89"><a href=""></a>    col1.image(base_file, caption<span class="op">=</span><span class="st">"Base Image"</span>, use_container_width<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-90"><a href=""></a><span class="cf">if</span> target_file <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb20-91"><a href=""></a>    col2.image(target_file, caption<span class="op">=</span><span class="st">"Target Style"</span>, use_container_width<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-92"><a href=""></a>    </span>
+<span id="cb20-93"><a href=""></a><span class="cf">if</span> run_btn:</span>
+<span id="cb20-94"><a href=""></a>    <span class="cf">if</span> base_file <span class="kw">is</span> <span class="va">None</span> <span class="kw">or</span> target_file <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb20-95"><a href=""></a>        st.warning(<span class="st">"Please provide both a base and a target image."</span>)</span>
+<span id="cb20-96"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb20-97"><a href=""></a>        base_bytes <span class="op">=</span> base_file.getvalue() <span class="cf">if</span> <span class="bu">hasattr</span>(base_file, <span class="st">'getvalue'</span>) <span class="cf">else</span> base_file</span>
+<span id="cb20-98"><a href=""></a>        target_bytes <span class="op">=</span> target_file.getvalue() <span class="cf">if</span> <span class="bu">hasattr</span>(target_file, <span class="st">'getvalue'</span>) <span class="cf">else</span> target_file</span>
+<span id="cb20-99"><a href=""></a>        </span>
+<span id="cb20-100"><a href=""></a>        <span class="cf">with</span> st.spinner(<span class="st">'Stylizing image... this may take a moment.'</span>):</span>
+<span id="cb20-101"><a href=""></a>            <span class="cf">try</span>:</span>
+<span id="cb20-102"><a href=""></a>                stylized_image <span class="op">=</span> cached_color_transfer(</span>
+<span id="cb20-103"><a href=""></a>                    base_bytes, target_bytes, downscale, metric, reg, sinkhorn_max_iter</span>
+<span id="cb20-104"><a href=""></a>                )</span>
+<span id="cb20-105"><a href=""></a>                st.session_state[<span class="st">'last_result'</span>] <span class="op">=</span> stylized_image</span>
+<span id="cb20-106"><a href=""></a>            <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb20-107"><a href=""></a>                st.error(<span class="ss">f"An error occurred during processing: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb20-108"><a href=""></a>                <span class="cf">if</span> <span class="st">'last_result'</span> <span class="kw">in</span> st.session_state:</span>
+<span id="cb20-109"><a href=""></a>                    <span class="kw">del</span> st.session_state[<span class="st">'last_result'</span>]</span>
+<span id="cb20-110"><a href=""></a></span>
+<span id="cb20-111"><a href=""></a><span class="cf">if</span> <span class="st">'last_result'</span> <span class="kw">in</span> st.session_state:</span>
+<span id="cb20-112"><a href=""></a>    st.divider()</span>
+<span id="cb20-113"><a href=""></a>    st.header(<span class="st">"Result"</span>)</span>
+<span id="cb20-114"><a href=""></a>    result_image <span class="op">=</span> st.session_state[<span class="st">'last_result'</span>]</span>
+<span id="cb20-115"><a href=""></a>    st.image(result_image, caption<span class="op">=</span><span class="st">"Stylized Result"</span>, use_column_width<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-116"><a href=""></a></span>
+<span id="cb20-117"><a href=""></a>    buf <span class="op">=</span> io.BytesIO()</span>
+<span id="cb20-118"><a href=""></a>    Image.fromarray((np.clip(result_image, <span class="dv">0</span>, <span class="dv">1</span>) <span class="op">*</span> <span class="dv">255</span>).astype(np.uint8)).save(buf, <span class="bu">format</span><span class="op">=</span><span class="st">"PNG"</span>)</span>
+<span id="cb20-119"><a href=""></a>    st.download_button(</span>
+<span id="cb20-120"><a href=""></a>        <span class="st">"Download Result"</span>,</span>
+<span id="cb20-121"><a href=""></a>        data<span class="op">=</span>buf.getvalue(),</span>
+<span id="cb20-122"><a href=""></a>        file_name<span class="op">=</span><span class="st">"stylized_result.png"</span>,</span>
+<span id="cb20-123"><a href=""></a>        mime<span class="op">=</span><span class="st">"image/png"</span></span>
+<span id="cb20-124"><a href=""></a>    )</span>
+<span id="cb20-125"><a href=""></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="alternatives-to-streamlit" class="slide level2">
 <h2>Alternatives to Streamlit</h2>
@@ -1266,145 +1393,145 @@ Traceback (most recent call last):
 </section>
 <section id="ipol-demo-a-dockerfile" class="slide level2">
 <h2>IPOL demo: a Dockerfile</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb15-1"><a href=""></a><span class="kw">FROM</span> registry.ipol.im/ipol:v2-py3.11</span>
-<span id="cb15-2"><a href=""></a><span class="kw">COPY</span> <span class="op">--from=ghcr.io/astral-sh/uv:latest</span> /uv /uvx /bin/</span>
-<span id="cb15-3"><a href=""></a></span>
-<span id="cb15-4"><a href=""></a><span class="co"># Copy the code to $bin</span></span>
-<span id="cb15-5"><a href=""></a><span class="kw">ENV</span> bin /workdir/bin/</span>
-<span id="cb15-6"><a href=""></a><span class="kw">RUN</span> <span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$bin</span></span>
-<span id="cb15-7"><a href=""></a><span class="kw">WORKDIR</span> $bin</span>
-<span id="cb15-8"><a href=""></a><span class="kw">COPY</span> . .</span>
-<span id="cb15-9"><a href=""></a></span>
-<span id="cb15-10"><a href=""></a><span class="co"># sync dependencies</span></span>
-<span id="cb15-11"><a href=""></a><span class="kw">RUN</span> <span class="ex">uv</span> sync</span>
-<span id="cb15-12"><a href=""></a></span>
-<span id="cb15-13"><a href=""></a><span class="co"># the execution will happen in the folder /workdir/exec</span></span>
-<span id="cb15-14"><a href=""></a><span class="co"># it will be created by IPOL</span></span>
-<span id="cb15-15"><a href=""></a></span>
-<span id="cb15-16"><a href=""></a><span class="co"># some QoL tweaks</span></span>
-<span id="cb15-17"><a href=""></a><span class="kw">ENV</span> PYTHONDONTWRITEBYTECODE 1</span>
-<span id="cb15-18"><a href=""></a><span class="kw">ENV</span> PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION python</span>
-<span id="cb15-19"><a href=""></a><span class="kw">ENV</span> PATH $bin:$PATH</span>
-<span id="cb15-20"><a href=""></a></span>
-<span id="cb15-21"><a href=""></a><span class="co"># $HOME is writable by the user `ipol`, but </span></span>
-<span id="cb15-22"><a href=""></a><span class="kw">ENV</span> HOME /home/ipol</span>
-<span id="cb15-23"><a href=""></a><span class="co"># chmod 777 so that any user can use the HOME, in case the docker is run with -u 1001:1001</span></span>
-<span id="cb15-24"><a href=""></a><span class="kw">RUN</span> <span class="ex">groupadd</span> <span class="at">-g</span> 1000 ipol <span class="kw">&amp;&amp;</span> <span class="ex">useradd</span> <span class="at">-m</span> <span class="at">-u</span> 1000 <span class="at">-g</span> 1000 ipol <span class="at">-d</span> <span class="va">$HOME</span> <span class="kw">&amp;&amp;</span> <span class="fu">chmod</span> <span class="at">-R</span> 777 <span class="va">$HOME</span></span>
-<span id="cb15-25"><a href=""></a><span class="kw">USER</span> ipol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource dockerfile number-lines code-with-copy"><code class="sourceCode dockerfile"><span id="cb21-1"><a href=""></a><span class="kw">FROM</span> registry.ipol.im/ipol:v2-py3.11</span>
+<span id="cb21-2"><a href=""></a><span class="kw">COPY</span> <span class="op">--from=ghcr.io/astral-sh/uv:latest</span> /uv /uvx /bin/</span>
+<span id="cb21-3"><a href=""></a></span>
+<span id="cb21-4"><a href=""></a><span class="co"># Copy the code to $bin</span></span>
+<span id="cb21-5"><a href=""></a><span class="kw">ENV</span> bin /workdir/bin/</span>
+<span id="cb21-6"><a href=""></a><span class="kw">RUN</span> <span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$bin</span></span>
+<span id="cb21-7"><a href=""></a><span class="kw">WORKDIR</span> $bin</span>
+<span id="cb21-8"><a href=""></a><span class="kw">COPY</span> . .</span>
+<span id="cb21-9"><a href=""></a></span>
+<span id="cb21-10"><a href=""></a><span class="co"># sync dependencies</span></span>
+<span id="cb21-11"><a href=""></a><span class="kw">RUN</span> <span class="ex">uv</span> sync</span>
+<span id="cb21-12"><a href=""></a></span>
+<span id="cb21-13"><a href=""></a><span class="co"># the execution will happen in the folder /workdir/exec</span></span>
+<span id="cb21-14"><a href=""></a><span class="co"># it will be created by IPOL</span></span>
+<span id="cb21-15"><a href=""></a></span>
+<span id="cb21-16"><a href=""></a><span class="co"># some QoL tweaks</span></span>
+<span id="cb21-17"><a href=""></a><span class="kw">ENV</span> PYTHONDONTWRITEBYTECODE 1</span>
+<span id="cb21-18"><a href=""></a><span class="kw">ENV</span> PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION python</span>
+<span id="cb21-19"><a href=""></a><span class="kw">ENV</span> PATH $bin:$PATH</span>
+<span id="cb21-20"><a href=""></a></span>
+<span id="cb21-21"><a href=""></a><span class="co"># $HOME is writable by the user `ipol`, but </span></span>
+<span id="cb21-22"><a href=""></a><span class="kw">ENV</span> HOME /home/ipol</span>
+<span id="cb21-23"><a href=""></a><span class="co"># chmod 777 so that any user can use the HOME, in case the docker is run with -u 1001:1001</span></span>
+<span id="cb21-24"><a href=""></a><span class="kw">RUN</span> <span class="ex">groupadd</span> <span class="at">-g</span> 1000 ipol <span class="kw">&amp;&amp;</span> <span class="ex">useradd</span> <span class="at">-m</span> <span class="at">-u</span> 1000 <span class="at">-g</span> 1000 ipol <span class="at">-d</span> <span class="va">$HOME</span> <span class="kw">&amp;&amp;</span> <span class="fu">chmod</span> <span class="at">-R</span> 777 <span class="va">$HOME</span></span>
+<span id="cb21-25"><a href=""></a><span class="kw">USER</span> ipol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="ipol-demo-a-json-description" class="slide level2">
 <h2>IPOL demo: a JSON description</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb16-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb16-2"><a href=""></a>    <span class="dt">"general"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-3"><a href=""></a>        <span class="dt">"demo_title"</span><span class="fu">:</span> <span class="st">"Gretsi 2025 Ipol demo: OT colour transfer"</span><span class="fu">,</span></span>
-<span id="cb16-4"><a href=""></a>        <span class="dt">"requirements"</span><span class="fu">:</span> <span class="st">"docker"</span></span>
-<span id="cb16-5"><a href=""></a>    <span class="fu">},</span></span>
-<span id="cb16-6"><a href=""></a>    <span class="dt">"build"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-7"><a href=""></a>      <span class="dt">"url"</span><span class="fu">:</span> <span class="st">"git@github.com:qbammey/reproducible_research_gretsi.git"</span><span class="fu">,</span></span>
-<span id="cb16-8"><a href=""></a>      <span class="dt">"rev"</span><span class="fu">:</span> <span class="st">"origin/main"</span><span class="fu">,</span></span>
-<span id="cb16-9"><a href=""></a>      <span class="dt">"dockerfile"</span><span class="fu">:</span> <span class="st">"Dockerfile"</span></span>
-<span id="cb16-10"><a href=""></a>   <span class="fu">},</span></span>
-<span id="cb16-11"><a href=""></a>   <span class="dt">"inputs"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb16-12"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb16-13"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"image"</span><span class="fu">,</span></span>
-<span id="cb16-14"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Base image to stylize."</span><span class="fu">,</span></span>
-<span id="cb16-15"><a href=""></a>         <span class="dt">"max_pixels"</span><span class="fu">:</span> <span class="st">"1024*1024"</span><span class="fu">,</span></span>
-<span id="cb16-16"><a href=""></a>         <span class="dt">"dtype"</span><span class="fu">:</span> <span class="st">"3x8i"</span><span class="fu">,</span></span>
-<span id="cb16-17"><a href=""></a>         <span class="dt">"ext"</span><span class="fu">:</span> <span class="st">".png"</span></span>
-<span id="cb16-18"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb16-19"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb16-20"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"image"</span><span class="fu">,</span></span>
-<span id="cb16-21"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Style target"</span><span class="fu">,</span></span>
-<span id="cb16-22"><a href=""></a>         <span class="dt">"max_pixels"</span><span class="fu">:</span> <span class="st">"1024*1024"</span><span class="fu">,</span></span>
-<span id="cb16-23"><a href=""></a>         <span class="dt">"dtype"</span><span class="fu">:</span> <span class="st">"3x8i"</span><span class="fu">,</span></span>
-<span id="cb16-24"><a href=""></a>         <span class="dt">"ext"</span><span class="fu">:</span> <span class="st">".png"</span></span>
-<span id="cb16-25"><a href=""></a>      <span class="fu">}</span></span>
-<span id="cb16-26"><a href=""></a>   <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb16-27"><a href=""></a>   <span class="dt">"params"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb16-28"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb16-29"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"downscale"</span><span class="fu">,</span></span>
-<span id="cb16-30"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Downscale level"</span><span class="fu">,</span></span>
-<span id="cb16-31"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"Lower:faster, higher:finer"</span><span class="fu">,</span></span>
-<span id="cb16-32"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"numeric"</span><span class="fu">,</span></span>
-<span id="cb16-33"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-34"><a href=""></a>            <span class="dt">"min"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
-<span id="cb16-35"><a href=""></a>            <span class="dt">"max"</span><span class="fu">:</span> <span class="dv">50</span><span class="fu">,</span></span>
-<span id="cb16-36"><a href=""></a>            <span class="dt">"default"</span><span class="fu">:</span> <span class="dv">30</span></span>
-<span id="cb16-37"><a href=""></a>         <span class="fu">}</span></span>
-<span id="cb16-38"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb16-39"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb16-40"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"metric"</span><span class="fu">,</span></span>
-<span id="cb16-41"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Metric to use"</span><span class="fu">,</span></span>
-<span id="cb16-42"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"Use L1 for outlier robustness"</span><span class="fu">,</span></span>
-<span id="cb16-43"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"selection_radio"</span><span class="fu">,</span></span>
-<span id="cb16-44"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-45"><a href=""></a>            <span class="dt">"L1"</span><span class="fu">:</span> <span class="st">"l1"</span><span class="fu">,</span></span>
-<span id="cb16-46"><a href=""></a>            <span class="dt">"L2"</span><span class="fu">:</span> <span class="st">"l2"</span></span>
-<span id="cb16-47"><a href=""></a>         <span class="fu">},</span></span>
-<span id="cb16-48"><a href=""></a>         <span class="dt">"default_value"</span><span class="fu">:</span> <span class="st">"l2"</span></span>
-<span id="cb16-49"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb16-50"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb16-51"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"reg"</span><span class="fu">,</span></span>
-<span id="cb16-52"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Regularization"</span><span class="fu">,</span></span>
-<span id="cb16-53"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"Entropic regularization for Sinkhorn. Set 0.0 to use EMD (original behaviour), &gt;0 for faster/smoother transport on larger problems"</span><span class="fu">,</span></span>
-<span id="cb16-54"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"range"</span><span class="fu">,</span></span>
-<span id="cb16-55"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-56"><a href=""></a>            <span class="dt">"min"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
-<span id="cb16-57"><a href=""></a>            <span class="dt">"max"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.</span><span class="dv">1</span><span class="fu">,</span></span>
-<span id="cb16-58"><a href=""></a>            <span class="dt">"step"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.005</span><span class="fu">,</span></span>
-<span id="cb16-59"><a href=""></a>            <span class="dt">"default"</span><span class="fu">:</span> <span class="dv">0</span></span>
-<span id="cb16-60"><a href=""></a>         <span class="fu">}</span></span>
-<span id="cb16-61"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb16-62"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb16-63"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"smi"</span><span class="fu">,</span></span>
-<span id="cb16-64"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Synkhorn max iterations"</span><span class="fu">,</span></span>
-<span id="cb16-65"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"numeric"</span><span class="fu">,</span></span>
-<span id="cb16-66"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-67"><a href=""></a>            <span class="dt">"min"</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></span>
-<span id="cb16-68"><a href=""></a>            <span class="dt">"max"</span><span class="fu">:</span> <span class="dv">1000</span><span class="fu">,</span></span>
-<span id="cb16-69"><a href=""></a>            <span class="dt">"default"</span><span class="fu">:</span> <span class="dv">1000</span></span>
-<span id="cb16-70"><a href=""></a>         <span class="fu">},</span></span>
-<span id="cb16-71"><a href=""></a>         <span class="dt">"visible"</span><span class="fu">:</span> <span class="st">"(params.reg&gt;0.001)"</span></span>
-<span id="cb16-72"><a href=""></a>      <span class="fu">}</span></span>
-<span id="cb16-73"><a href=""></a>   <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb16-74"><a href=""></a>   <span class="dt">"run"</span><span class="fu">:</span> <span class="st">"uv --project $bin run $bin/example_demo/examples/outlier_colour_transfer/run.py --base $input_0 --target $input_1 --output out.png --downscale $downscale --metric $metric --reg $reg --sinkhorn-max-iter $smi"</span><span class="fu">,</span></span>
-<span id="cb16-75"><a href=""></a>   <span class="dt">"results"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb16-76"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb16-77"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"gallery"</span><span class="fu">,</span></span>
-<span id="cb16-78"><a href=""></a>         <span class="dt">"contents"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-79"><a href=""></a>            <span class="dt">"Base image"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-80"><a href=""></a>               <span class="dt">"img"</span><span class="fu">:</span> <span class="st">"input_0.png"</span></span>
-<span id="cb16-81"><a href=""></a>            <span class="fu">},</span></span>
-<span id="cb16-82"><a href=""></a>            <span class="dt">"Style target"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-83"><a href=""></a>               <span class="dt">"img"</span><span class="fu">:</span> <span class="st">"input_1.png"</span></span>
-<span id="cb16-84"><a href=""></a>            <span class="fu">},</span></span>
-<span id="cb16-85"><a href=""></a>            <span class="dt">"Result"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-86"><a href=""></a>               <span class="dt">"img"</span><span class="fu">:</span> <span class="st">"out.png"</span></span>
-<span id="cb16-87"><a href=""></a>            <span class="fu">}</span></span>
-<span id="cb16-88"><a href=""></a>         <span class="fu">}</span></span>
-<span id="cb16-89"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb16-90"><a href=""></a>       <span class="fu">{</span></span>
-<span id="cb16-91"><a href=""></a>         <span class="dt">"contents"</span><span class="fu">:</span> <span class="st">"stdout.txt"</span><span class="fu">,</span></span>
-<span id="cb16-92"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"&lt;p&gt;Output&lt;/p&gt;"</span><span class="fu">,</span></span>
-<span id="cb16-93"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"text_file"</span></span>
-<span id="cb16-94"><a href=""></a>      <span class="fu">}</span></span>
-<span id="cb16-95"><a href=""></a>   <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb16-96"><a href=""></a>   <span class="dt">"archive"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-97"><a href=""></a>       <span class="dt">"archive_always"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb16-98"><a href=""></a>      <span class="dt">"enable_reconstruct"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
-<span id="cb16-99"><a href=""></a>      <span class="dt">"files"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb16-100"><a href=""></a>         <span class="dt">"input_0.png"</span><span class="fu">:</span> <span class="st">"Base image"</span><span class="fu">,</span></span>
-<span id="cb16-101"><a href=""></a>         <span class="dt">"input_1.png"</span><span class="fu">:</span> <span class="st">"Style target"</span><span class="fu">,</span></span>
-<span id="cb16-102"><a href=""></a>         <span class="dt">"out.png"</span><span class="fu">:</span> <span class="st">"Result"</span></span>
-<span id="cb16-103"><a href=""></a>      <span class="fu">},</span></span>
-<span id="cb16-104"><a href=""></a>      <span class="dt">"params"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb16-105"><a href=""></a>         <span class="st">"downscale"</span><span class="ot">,</span></span>
-<span id="cb16-106"><a href=""></a>         <span class="st">"metric"</span><span class="ot">,</span></span>
-<span id="cb16-107"><a href=""></a>         <span class="st">"reg"</span><span class="ot">,</span></span>
-<span id="cb16-108"><a href=""></a>         <span class="st">"smi"</span></span>
-<span id="cb16-109"><a href=""></a>      <span class="ot">]</span></span>
-<span id="cb16-110"><a href=""></a>   <span class="fu">}</span></span>
-<span id="cb16-111"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb22-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb22-2"><a href=""></a>    <span class="dt">"general"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-3"><a href=""></a>        <span class="dt">"demo_title"</span><span class="fu">:</span> <span class="st">"Gretsi 2025 Ipol demo: OT colour transfer"</span><span class="fu">,</span></span>
+<span id="cb22-4"><a href=""></a>        <span class="dt">"requirements"</span><span class="fu">:</span> <span class="st">"docker"</span></span>
+<span id="cb22-5"><a href=""></a>    <span class="fu">},</span></span>
+<span id="cb22-6"><a href=""></a>    <span class="dt">"build"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-7"><a href=""></a>      <span class="dt">"url"</span><span class="fu">:</span> <span class="st">"git@github.com:qbammey/reproducible_research_gretsi.git"</span><span class="fu">,</span></span>
+<span id="cb22-8"><a href=""></a>      <span class="dt">"rev"</span><span class="fu">:</span> <span class="st">"origin/main"</span><span class="fu">,</span></span>
+<span id="cb22-9"><a href=""></a>      <span class="dt">"dockerfile"</span><span class="fu">:</span> <span class="st">"Dockerfile"</span></span>
+<span id="cb22-10"><a href=""></a>   <span class="fu">},</span></span>
+<span id="cb22-11"><a href=""></a>   <span class="dt">"inputs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb22-12"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb22-13"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"image"</span><span class="fu">,</span></span>
+<span id="cb22-14"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Base image to stylize."</span><span class="fu">,</span></span>
+<span id="cb22-15"><a href=""></a>         <span class="dt">"max_pixels"</span><span class="fu">:</span> <span class="st">"1024*1024"</span><span class="fu">,</span></span>
+<span id="cb22-16"><a href=""></a>         <span class="dt">"dtype"</span><span class="fu">:</span> <span class="st">"3x8i"</span><span class="fu">,</span></span>
+<span id="cb22-17"><a href=""></a>         <span class="dt">"ext"</span><span class="fu">:</span> <span class="st">".png"</span></span>
+<span id="cb22-18"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb22-19"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb22-20"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"image"</span><span class="fu">,</span></span>
+<span id="cb22-21"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Style target"</span><span class="fu">,</span></span>
+<span id="cb22-22"><a href=""></a>         <span class="dt">"max_pixels"</span><span class="fu">:</span> <span class="st">"1024*1024"</span><span class="fu">,</span></span>
+<span id="cb22-23"><a href=""></a>         <span class="dt">"dtype"</span><span class="fu">:</span> <span class="st">"3x8i"</span><span class="fu">,</span></span>
+<span id="cb22-24"><a href=""></a>         <span class="dt">"ext"</span><span class="fu">:</span> <span class="st">".png"</span></span>
+<span id="cb22-25"><a href=""></a>      <span class="fu">}</span></span>
+<span id="cb22-26"><a href=""></a>   <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb22-27"><a href=""></a>   <span class="dt">"params"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb22-28"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb22-29"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"downscale"</span><span class="fu">,</span></span>
+<span id="cb22-30"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Downscale level"</span><span class="fu">,</span></span>
+<span id="cb22-31"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"Lower:faster, higher:finer"</span><span class="fu">,</span></span>
+<span id="cb22-32"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"numeric"</span><span class="fu">,</span></span>
+<span id="cb22-33"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-34"><a href=""></a>            <span class="dt">"min"</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb22-35"><a href=""></a>            <span class="dt">"max"</span><span class="fu">:</span> <span class="dv">50</span><span class="fu">,</span></span>
+<span id="cb22-36"><a href=""></a>            <span class="dt">"default"</span><span class="fu">:</span> <span class="dv">30</span></span>
+<span id="cb22-37"><a href=""></a>         <span class="fu">}</span></span>
+<span id="cb22-38"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb22-39"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb22-40"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"metric"</span><span class="fu">,</span></span>
+<span id="cb22-41"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Metric to use"</span><span class="fu">,</span></span>
+<span id="cb22-42"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"Use L1 for outlier robustness"</span><span class="fu">,</span></span>
+<span id="cb22-43"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"selection_radio"</span><span class="fu">,</span></span>
+<span id="cb22-44"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-45"><a href=""></a>            <span class="dt">"L1"</span><span class="fu">:</span> <span class="st">"l1"</span><span class="fu">,</span></span>
+<span id="cb22-46"><a href=""></a>            <span class="dt">"L2"</span><span class="fu">:</span> <span class="st">"l2"</span></span>
+<span id="cb22-47"><a href=""></a>         <span class="fu">},</span></span>
+<span id="cb22-48"><a href=""></a>         <span class="dt">"default_value"</span><span class="fu">:</span> <span class="st">"l2"</span></span>
+<span id="cb22-49"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb22-50"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb22-51"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"reg"</span><span class="fu">,</span></span>
+<span id="cb22-52"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Regularization"</span><span class="fu">,</span></span>
+<span id="cb22-53"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"Entropic regularization for Sinkhorn. Set 0.0 to use EMD (original behaviour), &gt;0 for faster/smoother transport on larger problems"</span><span class="fu">,</span></span>
+<span id="cb22-54"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"range"</span><span class="fu">,</span></span>
+<span id="cb22-55"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-56"><a href=""></a>            <span class="dt">"min"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb22-57"><a href=""></a>            <span class="dt">"max"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.</span><span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb22-58"><a href=""></a>            <span class="dt">"step"</span><span class="fu">:</span> <span class="dv">0</span><span class="er">.005</span><span class="fu">,</span></span>
+<span id="cb22-59"><a href=""></a>            <span class="dt">"default"</span><span class="fu">:</span> <span class="dv">0</span></span>
+<span id="cb22-60"><a href=""></a>         <span class="fu">}</span></span>
+<span id="cb22-61"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb22-62"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb22-63"><a href=""></a>         <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"smi"</span><span class="fu">,</span></span>
+<span id="cb22-64"><a href=""></a>         <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Synkhorn max iterations"</span><span class="fu">,</span></span>
+<span id="cb22-65"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"numeric"</span><span class="fu">,</span></span>
+<span id="cb22-66"><a href=""></a>         <span class="dt">"values"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-67"><a href=""></a>            <span class="dt">"min"</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></span>
+<span id="cb22-68"><a href=""></a>            <span class="dt">"max"</span><span class="fu">:</span> <span class="dv">1000</span><span class="fu">,</span></span>
+<span id="cb22-69"><a href=""></a>            <span class="dt">"default"</span><span class="fu">:</span> <span class="dv">1000</span></span>
+<span id="cb22-70"><a href=""></a>         <span class="fu">},</span></span>
+<span id="cb22-71"><a href=""></a>         <span class="dt">"visible"</span><span class="fu">:</span> <span class="st">"(params.reg&gt;0.001)"</span></span>
+<span id="cb22-72"><a href=""></a>      <span class="fu">}</span></span>
+<span id="cb22-73"><a href=""></a>   <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb22-74"><a href=""></a>   <span class="dt">"run"</span><span class="fu">:</span> <span class="st">"uv --project $bin run $bin/example_demo/examples/outlier_colour_transfer/run.py --base $input_0 --target $input_1 --output out.png --downscale $downscale --metric $metric --reg $reg --sinkhorn-max-iter $smi"</span><span class="fu">,</span></span>
+<span id="cb22-75"><a href=""></a>   <span class="dt">"results"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb22-76"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb22-77"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"gallery"</span><span class="fu">,</span></span>
+<span id="cb22-78"><a href=""></a>         <span class="dt">"contents"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-79"><a href=""></a>            <span class="dt">"Base image"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-80"><a href=""></a>               <span class="dt">"img"</span><span class="fu">:</span> <span class="st">"input_0.png"</span></span>
+<span id="cb22-81"><a href=""></a>            <span class="fu">},</span></span>
+<span id="cb22-82"><a href=""></a>            <span class="dt">"Style target"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-83"><a href=""></a>               <span class="dt">"img"</span><span class="fu">:</span> <span class="st">"input_1.png"</span></span>
+<span id="cb22-84"><a href=""></a>            <span class="fu">},</span></span>
+<span id="cb22-85"><a href=""></a>            <span class="dt">"Result"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-86"><a href=""></a>               <span class="dt">"img"</span><span class="fu">:</span> <span class="st">"out.png"</span></span>
+<span id="cb22-87"><a href=""></a>            <span class="fu">}</span></span>
+<span id="cb22-88"><a href=""></a>         <span class="fu">}</span></span>
+<span id="cb22-89"><a href=""></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb22-90"><a href=""></a>       <span class="fu">{</span></span>
+<span id="cb22-91"><a href=""></a>         <span class="dt">"contents"</span><span class="fu">:</span> <span class="st">"stdout.txt"</span><span class="fu">,</span></span>
+<span id="cb22-92"><a href=""></a>         <span class="dt">"label"</span><span class="fu">:</span> <span class="st">"&lt;p&gt;Output&lt;/p&gt;"</span><span class="fu">,</span></span>
+<span id="cb22-93"><a href=""></a>         <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"text_file"</span></span>
+<span id="cb22-94"><a href=""></a>      <span class="fu">}</span></span>
+<span id="cb22-95"><a href=""></a>   <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb22-96"><a href=""></a>   <span class="dt">"archive"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-97"><a href=""></a>       <span class="dt">"archive_always"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb22-98"><a href=""></a>      <span class="dt">"enable_reconstruct"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb22-99"><a href=""></a>      <span class="dt">"files"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb22-100"><a href=""></a>         <span class="dt">"input_0.png"</span><span class="fu">:</span> <span class="st">"Base image"</span><span class="fu">,</span></span>
+<span id="cb22-101"><a href=""></a>         <span class="dt">"input_1.png"</span><span class="fu">:</span> <span class="st">"Style target"</span><span class="fu">,</span></span>
+<span id="cb22-102"><a href=""></a>         <span class="dt">"out.png"</span><span class="fu">:</span> <span class="st">"Result"</span></span>
+<span id="cb22-103"><a href=""></a>      <span class="fu">},</span></span>
+<span id="cb22-104"><a href=""></a>      <span class="dt">"params"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb22-105"><a href=""></a>         <span class="st">"downscale"</span><span class="ot">,</span></span>
+<span id="cb22-106"><a href=""></a>         <span class="st">"metric"</span><span class="ot">,</span></span>
+<span id="cb22-107"><a href=""></a>         <span class="st">"reg"</span><span class="ot">,</span></span>
+<span id="cb22-108"><a href=""></a>         <span class="st">"smi"</span></span>
+<span id="cb22-109"><a href=""></a>      <span class="ot">]</span></span>
+<span id="cb22-110"><a href=""></a>   <span class="fu">}</span></span>
+<span id="cb22-111"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="ipol-demo" class="slide level2">
 <h2>IPOL demo</h2>
