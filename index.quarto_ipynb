@@ -5,9 +5,6 @@
       "metadata": {},
       "source": [
         "---\n",
-        "title: \"Reproducible Research: From Code to Career\"\n",
-        "subtitle: \"How to save time, build trust, and maximize your impact\"\n",
-        "author: \"Adrien Krähenbühl (ICube, Université de Strasbourg), Quentin Bammey (Image and Visual Representation Lab, École Polytechnique Fédérale de Lausanne), Gabriele Facciolo (Centre Borelli, ENS Paris-Saclay; Institut Universitaire de France)\"\n",
         "lightbox: true\n",
         "scrollable: true\n",
         "format: \n",
@@ -32,6 +29,8 @@
         "\n",
         "**Quentin Bammey (EPFL, IVRL), Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli), Adrien Krähenbühl (Unistra, ICube)**\n",
         "\n",
+        "![](images/epfl.svg){height=\"30\"} ![](images/ivrl.png){height=\"30\"} ![](images/ens.png){height=\"30\"} ![](images/cgb.png){height=\"30\"} ![](images/unistra.png){height=\"30\"} ![](images/icube.png){height=\"30\"}\n",
+        "\n",
         ":::\n",
         "::: {.column width=35%}\n",
         "![](images/qrcode.png)\n",
@@ -41,7 +40,7 @@
         "::::\n",
         "\n",
         "::: footer\n",
-        "![](images/epfl.svg) ![](images/ivrl.png) ![](images/ens.png) ![](images/cgb.png) ![](images/unistra.png) ![](images/icube.png)\n",
+        "![](images/epfl.svg){height=\"30\"} ![](images/ivrl.png){height=\"30\"} ![](images/ens.png){height=\"30\"} ![](images/cgb.png){height=\"30\"} ![](images/unistra.png){height=\"30\"} ![](images/icube.png){height=\"30\"}\n",
         ":::\n",
         "\n",
         "\n",
@@ -262,7 +261,7 @@
         "\n",
         "To understand these concepts, let's run a simple experiment: can a small neural network tell the difference between a T-shirt and a pair of Trousers?"
       ],
-      "id": "4ea36199"
+      "id": "6105292e"
     },
     {
       "cell_type": "code",
@@ -298,7 +297,7 @@
         "    predictions = model.predict(X_test)\n",
         "    return accuracy_score(y_test, predictions)"
       ],
-      "id": "11aa4a3b",
+      "id": "c8c804b9",
       "execution_count": null,
       "outputs": []
     },
@@ -318,7 +317,7 @@
         "\n",
         "::: {.column width=\"50%\"}"
       ],
-      "id": "9f2aef01"
+      "id": "6db5b5f7"
     },
     {
       "cell_type": "code",
@@ -333,7 +332,7 @@
         "print(f\"Accuracy of Run 1: {accuracy_run_1:.4f}\")\n",
         "print(f\"Accuracy of Run 2: {accuracy_run_2:.4f}\")"
       ],
-      "id": "895ad1c8",
+      "id": "22c39c74",
       "execution_count": null,
       "outputs": []
     },
@@ -345,7 +344,7 @@
         "\n",
         "::: {.column width=\"50%\"}"
       ],
-      "id": "3e44998d"
+      "id": "d4ffb7f8"
     },
     {
       "cell_type": "code",
@@ -366,7 +365,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "14539336",
+      "id": "d9970810",
       "execution_count": null,
       "outputs": []
     },
@@ -390,7 +389,7 @@
         ":::: {.columns}\n",
         "::: {.column width=\"50%\"}"
       ],
-      "id": "a43ea971"
+      "id": "338f715e"
     },
     {
       "cell_type": "code",
@@ -407,7 +406,7 @@
         "    accuracies.append(acc)\n",
         "    print(f\"Seed: {seed:<4} -> Accuracy: {acc:.4f}\")"
       ],
-      "id": "23b3ac9f",
+      "id": "f02fad10",
       "execution_count": null,
       "outputs": []
     },
@@ -418,7 +417,7 @@
         ":::\n",
         "::: {.column width=\"50%\"}"
       ],
-      "id": "600428e5"
+      "id": "d35e4f66"
     },
     {
       "cell_type": "code",
@@ -441,7 +440,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "5bed0d35",
+      "id": "69b0d6a9",
       "execution_count": null,
       "outputs": []
     },
@@ -467,7 +466,7 @@
         ":::: {.columns}\n",
         "::: {.column width=\"50%\"}"
       ],
-      "id": "5910516b"
+      "id": "5408abeb"
     },
     {
       "cell_type": "code",
@@ -500,7 +499,7 @@
         "#print(f\"Original Task (T-shirt vs Trouser) Accuracy: {accuracy_original:.4f}\")\n",
         "print(f\"Replication Task (Sandal vs Boot) Accuracy: {accuracy_replication:.4f}\")"
       ],
-      "id": "e3a21db2",
+      "id": "749b4498",
       "execution_count": null,
       "outputs": []
     },
@@ -512,7 +511,7 @@
         "\n",
         "::: {.column width=\"50%\"}"
       ],
-      "id": "f1fcdc97"
+      "id": "15aecee9"
     },
     {
       "cell_type": "code",
@@ -531,7 +530,7 @@
         ")\n",
         "fig.show()"
       ],
-      "id": "2f6e6cb9",
+      "id": "dda719d4",
       "execution_count": null,
       "outputs": []
     },
@@ -1195,6 +1194,26 @@
         "\n",
         "---\n",
         "\n",
+        "## Demo Decay: When Hugging Face Links Break\n",
+        "\n",
+        "::: {.slide}\n",
+        "\n",
+        "- Many recent **Computer Vision papers** advertise a Hugging Face demo in their README.\n",
+        "- After 1–2 years, a surprising number of these demos are **no longer working**:\n",
+        "  - **Build errors**, **runtime failures**, or **deprecated Spaces**.\n",
+        "  - Examples: *UniCL (CVPR 2022)*, *MonoScene (CVPR 2022)*, *TokenCut (CVPR 2022)*, *LaMa demo*, *Drawings-to-Human*, …\n",
+        "- Implication:  \n",
+        "  - *Initial excitement* (easy try-it-yourself)  \n",
+        "  - → *Rapid decay* (hard to reproduce/interact later)\n",
+        "\n",
+        "::: {.callout-note}\n",
+        "**Lesson:** Reproducibility is not only about publishing code/data, but also about **maintaining interactive demos** (or providing a fallback).\n",
+        ":::\n",
+        ":::\n",
+        "\n",
+        "\n",
+        "---\n",
+        "\n",
         "## Towards full reproducibility\n",
         "\n",
         "* Image Processing On Line (IPOL) is a **journal** and **demo system**\n",
@@ -1362,7 +1381,7 @@
         "* Still some obstacles such as hardware dependencies, but this is getting better.\n",
         "* Beyond implementation reproducibility: algorithm reproducibility is essential to trust what the code does (e. g. IPOL article)"
       ],
-      "id": "e8c67c4d"
+      "id": "99bb530a"
     }
   ],
   "metadata": {

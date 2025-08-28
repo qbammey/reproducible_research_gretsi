@@ -1,7 +1,4 @@
 ---
-title: "Reproducible Research: From Code to Career"
-subtitle: "How to save time, build trust, and maximize your impact"
-author: "Adrien Krähenbühl (ICube, Université de Strasbourg), Quentin Bammey (Image and Visual Representation Lab, École Polytechnique Fédérale de Lausanne), Gabriele Facciolo (Centre Borelli, ENS Paris-Saclay; Institut Universitaire de France)"
 lightbox: true
 scrollable: true
 format: 
@@ -26,6 +23,8 @@ format:
 
 **Quentin Bammey (EPFL, IVRL), Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli), Adrien Krähenbühl (Unistra, ICube)**
 
+![](images/epfl.svg){height="30"} ![](images/ivrl.png){height="30"} ![](images/ens.png){height="30"} ![](images/cgb.png){height="30"} ![](images/unistra.png){height="30"} ![](images/icube.png){height="30"}
+
 :::
 ::: {.column width=35%}
 ![](images/qrcode.png)
@@ -35,7 +34,7 @@ format:
 ::::
 
 ::: footer
-![](images/epfl.svg) ![](images/ivrl.png) ![](images/ens.png) ![](images/cgb.png) ![](images/unistra.png) ![](images/icube.png)
+![](images/epfl.svg){height="30"} ![](images/ivrl.png){height="30"} ![](images/ens.png){height="30"} ![](images/cgb.png){height="30"} ![](images/unistra.png){height="30"} ![](images/icube.png){height="30"}
 :::
 
 
