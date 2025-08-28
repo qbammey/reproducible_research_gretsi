@@ -1,7 +1,7 @@
 ---
 title: "Reproducible Research: From Code to Career"
 subtitle: "How to save time, build trust, and maximize your impact"
-author: "Adrien Krähenbühl (ICube, Université de Strasbourg), Quentin Bammey (Image and Visual Representation Lab, École Polytechnique Fédérale de Lausanne), Gabriele Facciolo (Centre Borelli, ENS Paris-Saclay)"
+author: "Adrien Krähenbühl (ICube, Université de Strasbourg), Quentin Bammey (Image and Visual Representation Lab, École Polytechnique Fédérale de Lausanne), Gabriele Facciolo (Centre Borelli, ENS Paris-Saclay; Institut Universitaire de France)"
 lightbox: true
 scrollable: true
 format: 
