@@ -1276,7 +1276,7 @@ USER ipol
 
 ## To conclude
 
-* Designing clean, reproducible, and easy-to-use implementations helps **build trust** and **maximize your impact**.
+* Designing clean, reproducible, and easy-to-use implementations helps **build trust** and **maximize impact**.
 * Small cost up-front, will save you (and others) lots of time
 * Once the code is well-packaged with clear dependencies, easy to turn into a demo
 * Still some obstacles such as hardware dependencies, but this is getting better.
