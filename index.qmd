@@ -571,6 +571,7 @@ The first step is to create a clear, reusable structure.
 ### Checklist for a Good Structure
 - **Clear instructions:** A `README.md` explaining setup and execution.
 - Separate scripts to retrain the model, reproduce benchmark results, and use the model.
+- Cleanup code (LINT) for readability 
 - **Provide pre-trained Models:** Don't force users to retrain everything.
 :::
 ::::
