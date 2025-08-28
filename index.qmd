@@ -1099,7 +1099,7 @@ Even more complex, excellent versatility within the Plotly environment.
 
 - Many recent **Computer Vision papers** advertise a 🤗 demo in their README.
 - After 1–2 years, a surprising number **fail**:
-![](images/huggingface_fail.jpg){width=100%}
+[![](images/huggingface_fail.jpg){width=100%}](https://github.com/advimman/lama?tab=readme-ov-file#-lama-resolution-robust-large-mask-inpainting-with-fourier-convolutions)
   - other ex. *UniCL (CVPR 2022)*, *MonoScene (CVPR 2022)*, *TokenCut (CVPR 2022)* ...
 
 - Implication:  
