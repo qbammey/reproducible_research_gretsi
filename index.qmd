@@ -15,15 +15,17 @@ format:
       numbers: true
 ---
 
+# Introduction {visibility="hidden"}
+
 ## Reproducible Research: From Code to Career
 
 :::: {.columns}
 :::{.column width=65%}
 ### How to save time, build trust, and maximize your impact
 
-**Quentin Bammey (EPFL, IVRL), Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli), Adrien Krähenbühl (Unistra, ICube)**
+**Quentin Bammey (EPFL, IVRL), Gabriele Facciolo (ENS Paris-Saclay, Centre Borelli, Institut Universitaire de France), Adrien Krähenbühl (Unistra, ICube)**
 
-![](images/epfl.svg){height="30"} ![](images/ivrl.png){height="30"} ![](images/ens.png){height="30"} ![](images/cgb.png){height="30"} ![](images/unistra.png){height="30"} ![](images/icube.png){height="30"}
+![](images/epfl.svg){height="30"} ![](images/ivrl.png){height="30"} ![](images/ens.png){height="30"} ![](images/cgb.png){height="30"} ![](images/iuf.png){height="30"} ![](images/unistra.png){height="30"} ![](images/icube.png){height="30"}
 
 :::
 ::: {.column width=35%}
@@ -284,6 +286,7 @@ def run_experiment(seed):
     return accuracy_score(y_test, predictions)
 ```
 
+---
 
 ## Pillar 1: Repeatability
 ::: {.callout-note}
